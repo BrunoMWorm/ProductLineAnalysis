@@ -1,0 +1,15 @@
+cpio.cfg
+tar.cfg
+cksum.cfg
+wc.cfg
+vfork_daemon_rexec.cfg
+chat.cfg
+modutils-24.cfg
+modutils.cfg
+ping.cfg
+common.cfg
+fuser.cfg
+runsvdir.cfg
+mconf.cfg
+klogd.cfg
+mkswap.cfg

@@ -1,0 +1,61 @@
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+[{(CFGNode {_nID = -917885650, _fname = "udhcp_str2optset", text = "case OPTION_BIN:::udhcp_str2optset", ast = CFGStat (CCase (CVar (Ident "OPTION_BIN" 294467303 (NodeInfo ("": line 524) (("": line 524),10) (Name {nameId = 0}))) (NodeInfo ("": line 524) (("": line 524),10) (Name {nameId = 1}))) (CExpr Nothing (NodeInfo ("": line 524) (("": line 524),1) (Name {nameId = 2}))) (NodeInfo ("": line 524) (("": line 524),1) (Name {nameId = 3}))), _preds = [{(-485848047,TT)}], __succs = [{(-2061785890,TT)}]},TT)}]
+"With memoization:"
+[]
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeep
+time                 939.7 μs   (933.2 μs .. 948.0 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 938.4 μs   (932.7 μs .. 946.6 μs)
+std dev              22.55 μs   (18.07 μs .. 29.61 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeepMemo
+time                 537.8 μs   (533.1 μs .. 542.7 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 536.7 μs   (533.5 μs .. 542.6 μs)
+std dev              13.76 μs   (9.502 μs .. 21.07 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeep
+time                 942.7 μs   (927.3 μs .. 957.0 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 931.4 μs   (925.7 μs .. 938.8 μs)
+std dev              21.80 μs   (16.61 μs .. 27.70 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeepMemo
+time                 347.2 μs   (344.7 μs .. 349.9 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 348.9 μs   (346.5 μs .. 352.9 μs)
+std dev              10.06 μs   (6.107 μs .. 17.33 μs)
+variance introduced by outliers: 22% (moderately inflated)
+
+"Done."

@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 14863639099d6b6e07e2183df99fd8156c71bf6018ff4ed99610a70440a905b8
+-- hash: 0fee6ebb6fb2bd2c48033f26ccf0e9d3e1da0072109974b382f457d6fe273495
 
 name:           ControlFlow
 version:        0.1.0.0
@@ -29,19 +29,27 @@ library
   exposed-modules:
       CallDensity
       CallDensityDeep
+      CallDensityDeepMemo
       CaseTermination
       CaseTerminationDeep
+      CaseTerminationDeepMemo
       CFG
       CFGParser
       DanglingSwitch
       DanglingSwitchDeep
+      DanglingSwitchDeepMemo
       Gotos
       GotosDeep
+      GotosDeepMemo
+      Memoization.Core.Memory
+      Memoization.Core.State
       NodeTypes
       Return
       ReturnAvg
       ReturnAvgDeep
+      ReturnAvgDeepMemo
       ReturnDeep
+      ReturnDeepMemo
       VCFG
   other-modules:
       Paths_ControlFlow
@@ -64,6 +72,10 @@ library
 executable ControlFlow-exe
   main-is: Main.hs
   other-modules:
+      Main2
+      MainNoMemo
+      MainOnly1
+      MainValid
       Paths_ControlFlow
   hs-source-dirs:
       app

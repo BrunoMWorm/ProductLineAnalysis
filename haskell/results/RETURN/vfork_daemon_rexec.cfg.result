@@ -1,0 +1,59 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+[{(CFGNode {_nID = -1339564742, _fname = "restore_nofork_data", text = "restore_nofork_data", ast = CFGFuncRoot "", _preds = [{(-168411153,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)},{(304652603,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}], __succs = [{(263739915,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}]},CONFIG_FEATURE_PREFER_APPLETS)},{(CFGNode {_nID = -389840215, _fname = "save_nofork_data", text = "save_nofork_data", ast = CFGFuncRoot "", _preds = [{(-762879958,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)},{(-1653925676,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}], __succs = [{(758022272,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}]},CONFIG_FEATURE_PREFER_APPLETS)},{(CFGNode {_nID = -20745815, _fname = "re_exec", text = "re_exec", ast = CFGFuncRoot "", _preds = [{(759235796,CONFIG_NOMMU), (0,!CONFIG_NOMMU)},{(-1212139337,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}], __succs = [{(-1777219458,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}]},CONFIG_NOMMU)},{(CFGNode {_nID = 657957215, _fname = "bb_sanitize_stdio", text = "bb_sanitize_stdio", ast = CFGFuncRoot "", _preds = [{(-1101904692,CONFIG_NOMMU), (0,!CONFIG_NOMMU)},{(-645958129,!CONFIG_NOMMU), (0,CONFIG_NOMMU)}], __succs = [{(-645958129,!CONFIG_NOMMU), (0,CONFIG_NOMMU)},{(-1101904692,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = -1339564742, _fname = "restore_nofork_data", text = "restore_nofork_data", ast = CFGFuncRoot "", _preds = [{(-168411153,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)},{(304652603,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}], __succs = [{(263739915,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}]},CONFIG_FEATURE_PREFER_APPLETS)},{(CFGNode {_nID = -389840215, _fname = "save_nofork_data", text = "save_nofork_data", ast = CFGFuncRoot "", _preds = [{(-762879958,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)},{(-1653925676,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}], __succs = [{(758022272,CONFIG_FEATURE_PREFER_APPLETS), (0,!CONFIG_FEATURE_PREFER_APPLETS)}]},CONFIG_FEATURE_PREFER_APPLETS)},{(CFGNode {_nID = -20745815, _fname = "re_exec", text = "re_exec", ast = CFGFuncRoot "", _preds = [{(759235796,CONFIG_NOMMU), (0,!CONFIG_NOMMU)},{(-1212139337,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}], __succs = [{(-1777219458,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}]},CONFIG_NOMMU)},{(CFGNode {_nID = 657957215, _fname = "bb_sanitize_stdio", text = "bb_sanitize_stdio", ast = CFGFuncRoot "", _preds = [{(-1101904692,CONFIG_NOMMU), (0,!CONFIG_NOMMU)},{(-645958129,!CONFIG_NOMMU), (0,CONFIG_NOMMU)}], __succs = [{(-645958129,!CONFIG_NOMMU), (0,CONFIG_NOMMU)},{(-1101904692,CONFIG_NOMMU), (0,!CONFIG_NOMMU)}]},TT)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeep
+time                 7.838 ms   (7.697 ms .. 8.008 ms)
+                     0.997 R²   (0.996 R² .. 0.999 R²)
+mean                 7.892 ms   (7.821 ms .. 7.993 ms)
+std dev              231.9 μs   (181.5 μs .. 308.1 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeepMemo
+time                 5.375 ms   (5.317 ms .. 5.444 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 5.316 ms   (5.287 ms .. 5.348 ms)
+std dev              93.33 μs   (70.75 μs .. 125.6 μs)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeep
+time                 7.789 ms   (7.702 ms .. 7.892 ms)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 7.880 ms   (7.814 ms .. 7.959 ms)
+std dev              203.0 μs   (161.1 μs .. 265.4 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeepMemo
+time                 407.1 μs   (403.4 μs .. 410.8 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 406.0 μs   (403.2 μs .. 410.2 μs)
+std dev              11.85 μs   (8.691 μs .. 17.18 μs)
+variance introduced by outliers: 21% (moderately inflated)
+
+"Done."

@@ -1,0 +1,60 @@
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeep
+time                 548.8 μs   (545.4 μs .. 552.4 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 549.8 μs   (546.7 μs .. 554.3 μs)
+std dev              12.46 μs   (9.247 μs .. 17.14 μs)
+variance introduced by outliers: 14% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeepMemo
+time                 586.2 μs   (583.3 μs .. 590.6 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 586.9 μs   (584.3 μs .. 589.9 μs)
+std dev              9.220 μs   (7.523 μs .. 11.40 μs)
+
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeep
+time                 545.3 μs   (543.0 μs .. 548.4 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 547.5 μs   (545.0 μs .. 551.7 μs)
+std dev              10.91 μs   (6.129 μs .. 19.09 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeepMemo
+time                 585.0 μs   (575.6 μs .. 597.8 μs)
+                     0.998 R²   (0.997 R² .. 1.000 R²)
+mean                 580.0 μs   (577.0 μs .. 585.0 μs)
+std dev              12.92 μs   (8.510 μs .. 21.13 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+"Done."

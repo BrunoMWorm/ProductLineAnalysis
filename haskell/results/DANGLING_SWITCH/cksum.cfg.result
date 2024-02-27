@@ -1,0 +1,61 @@
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeep
+time                 163.8 μs   (162.7 μs .. 165.3 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 167.0 μs   (165.0 μs .. 169.8 μs)
+std dev              7.865 μs   (5.737 μs .. 11.70 μs)
+variance introduced by outliers: 47% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeepMemo
+time                 179.4 μs   (178.4 μs .. 180.6 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 181.8 μs   (180.1 μs .. 184.0 μs)
+std dev              6.386 μs   (4.749 μs .. 8.593 μs)
+variance introduced by outliers: 32% (moderately inflated)
+
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeep
+time                 163.7 μs   (162.8 μs .. 165.2 μs)
+                     0.997 R²   (0.993 R² .. 0.999 R²)
+mean                 169.2 μs   (166.1 μs .. 176.3 μs)
+std dev              14.90 μs   (7.651 μs .. 28.61 μs)
+variance introduced by outliers: 76% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeepMemo
+time                 174.1 μs   (173.1 μs .. 175.0 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 174.8 μs   (173.6 μs .. 176.7 μs)
+std dev              5.182 μs   (3.350 μs .. 7.847 μs)
+variance introduced by outliers: 25% (moderately inflated)
+
+"Done."

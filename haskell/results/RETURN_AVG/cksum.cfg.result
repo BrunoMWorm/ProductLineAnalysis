@@ -1,0 +1,59 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+{(0 % 1,!CONFIG_DESKTOP), (0 % 1,CONFIG_DESKTOP)}
+"With memoization:"
+{(0 % 1,!CONFIG_DESKTOP), (0 % 1,CONFIG_DESKTOP)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeep
+time                 277.0 μs   (275.1 μs .. 279.0 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 278.3 μs   (276.8 μs .. 280.3 μs)
+std dev              5.438 μs   (4.167 μs .. 7.507 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeepMemo
+time                 255.3 μs   (254.0 μs .. 256.7 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 255.0 μs   (253.8 μs .. 256.4 μs)
+std dev              4.322 μs   (3.429 μs .. 5.723 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeep
+time                 277.7 μs   (276.3 μs .. 279.0 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 278.6 μs   (277.4 μs .. 279.9 μs)
+std dev              4.200 μs   (3.202 μs .. 5.610 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeepMemo
+time                 107.2 μs   (105.3 μs .. 109.5 μs)
+                     0.998 R²   (0.997 R² .. 1.000 R²)
+mean                 106.6 μs   (105.9 μs .. 107.7 μs)
+std dev              2.951 μs   (2.149 μs .. 4.073 μs)
+variance introduced by outliers: 25% (moderately inflated)
+
+"Done."

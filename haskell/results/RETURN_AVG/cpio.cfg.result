@@ -1,0 +1,61 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O"]
+Feature#:        3
+Config#:         8
+Present config#: 10
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+"Without memoization:"
+{(0 % 1,!CONFIG_FEATURE_CPIO_O), (97 % 3,((CONFIG_FEATURE_CPIO_O /\ !((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS)) /\ (!CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O))), (43 % 1,((CONFIG_FEATURE_CPIO_O /\ !((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS)) /\ (CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O))), (97 % 3,(((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS) /\ ((CONFIG_LONG_OPTS /\ CONFIG_FEATURE_CPIO_O) /\ (!CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O)))), (43 % 1,(((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS) /\ ((CONFIG_LONG_OPTS /\ CONFIG_FEATURE_CPIO_O) /\ (CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O))))}
+"With memoization:"
+{(97 % 3,((CONFIG_FEATURE_CPIO_O /\ !((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS)) /\ (!CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O))), (43 % 1,((CONFIG_FEATURE_CPIO_O /\ !((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS)) /\ (CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O))), (97 % 3,(((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS) /\ ((CONFIG_LONG_OPTS /\ CONFIG_FEATURE_CPIO_O) /\ (!CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O)))), (43 % 1,(((CONFIG_FEATURE_CPIO_O /\ CONFIG_FEATURE_CPIO_P) /\ CONFIG_LONG_OPTS) /\ ((CONFIG_LONG_OPTS /\ CONFIG_FEATURE_CPIO_O) /\ (CONFIG_NOMMU /\ CONFIG_FEATURE_CPIO_O)))), (0 % 1,!CONFIG_FEATURE_CPIO_O)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+benchmarking inputs/busybox/cfgs-1_18_5/cpio.cfg,276,4,16,10,/originalFileDeep
+time                 12.52 s    (12.39 s .. 12.73 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 12.57 s    (12.52 s .. 12.62 s)
+std dev              52.88 ms   (27.19 ms .. 74.47 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cpio.cfg,276,4,16,10,/originalFileDeepMemo
+time                 12.69 s    (12.45 s .. 13.24 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 12.52 s    (12.47 s .. 12.61 s)
+std dev              92.93 ms   (2.347 ms .. 112.0 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+benchmarking inputs/busybox/cfgs-1_19_0/cpio.cfg,276,4,16,10,/evolvedFileDeep
+time                 12.49 s    (12.30 s .. 12.72 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 12.54 s    (12.51 s .. 12.60 s)
+std dev              52.60 ms   (1.880 ms .. 62.62 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cpio.cfg,276,4,16,10,/evolvedFileDeepMemo
+time                 512.3 μs   (507.7 μs .. 518.6 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 511.0 μs   (507.0 μs .. 516.5 μs)
+std dev              15.74 μs   (11.32 μs .. 20.78 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+"Done."

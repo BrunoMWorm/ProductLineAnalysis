@@ -1,0 +1,61 @@
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/runsvdir.cfg,185,1,2,2,/originalFileDeep
+time                 284.4 μs   (282.7 μs .. 286.1 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 284.8 μs   (283.3 μs .. 286.6 μs)
+std dev              5.564 μs   (4.357 μs .. 7.340 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/runsvdir.cfg,185,1,2,2,/originalFileDeepMemo
+time                 306.9 μs   (305.1 μs .. 309.2 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 308.0 μs   (306.2 μs .. 310.6 μs)
+std dev              7.103 μs   (4.251 μs .. 10.56 μs)
+variance introduced by outliers: 16% (moderately inflated)
+
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/runsvdir.cfg,185,1,2,2,/evolvedFileDeep
+time                 289.9 μs   (288.2 μs .. 291.8 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 289.9 μs   (288.6 μs .. 291.9 μs)
+std dev              5.495 μs   (4.356 μs .. 7.076 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/runsvdir.cfg,185,1,2,2,/evolvedFileDeepMemo
+time                 310.6 μs   (306.6 μs .. 315.6 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 308.4 μs   (306.4 μs .. 310.9 μs)
+std dev              7.623 μs   (5.898 μs .. 10.90 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+"Done."

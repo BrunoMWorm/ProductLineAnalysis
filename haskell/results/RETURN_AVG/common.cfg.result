@@ -1,0 +1,59 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(25 % 11,!CONFIG_FEATURE_UDHCP_RFC3397), (25 % 11,CONFIG_FEATURE_UDHCP_RFC3397)}
+"With memoization:"
+{(25 % 11,!CONFIG_FEATURE_UDHCP_RFC3397), (25 % 11,CONFIG_FEATURE_UDHCP_RFC3397)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeep
+time                 44.28 ms   (43.94 ms .. 44.58 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 43.84 ms   (43.54 ms .. 44.13 ms)
+std dev              592.5 μs   (431.3 μs .. 896.1 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeepMemo
+time                 44.18 ms   (43.88 ms .. 44.68 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 44.45 ms   (44.09 ms .. 45.34 ms)
+std dev              1.023 ms   (435.5 μs .. 1.786 ms)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeep
+time                 42.68 ms   (41.33 ms .. 43.58 ms)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 45.69 ms   (44.63 ms .. 47.08 ms)
+std dev              2.335 ms   (1.765 ms .. 3.007 ms)
+variance introduced by outliers: 13% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeepMemo
+time                 356.2 μs   (352.2 μs .. 361.0 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 352.3 μs   (350.3 μs .. 354.6 μs)
+std dev              7.097 μs   (5.198 μs .. 9.599 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+"Done."

@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/modutils-24.cfg
+Node#:           1238
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/modutils-24.cfg
+Node#:           1237
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+"Without memoization:"
+[{(CFGNode {_nID = -1693852704, _fname = "print_load_map", text = "print_load_map", ast = CFGFuncRoot "", _preds = [{(-841743413,(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL)), (0,!(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL))},{(-1212486802,(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ !CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL)), (0,!(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ !CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL))}], __succs = [{(-1524518227,CONFIG_FEATURE_INSMOD_LOAD_MAP), (0,!CONFIG_FEATURE_INSMOD_LOAD_MAP)}]},CONFIG_FEATURE_INSMOD_LOAD_MAP)},{(CFGNode {_nID = -1477121772, _fname = "obj_set_symbol_compare", text = "obj_set_symbol_compare", ast = CFGFuncRoot "", _preds = [{(1417050732,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)},{(985549465,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)}], __succs = [{(-1129519326,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)}]},CONFIG_FEATURE_INSMOD_VERSION_CHECKING)},{(CFGNode {_nID = -1448556945, _fname = "check_tainted_module", text = "check_tainted_module", ast = CFGFuncRoot "", _preds = [], __succs = [{(-1913464456,CONFIG_FEATURE_CHECK_TAINTED_MODULE), (0,!CONFIG_FEATURE_CHECK_TAINTED_MODULE)}]},CONFIG_FEATURE_CHECK_TAINTED_MODULE)},{(CFGNode {_nID = -1374042425, _fname = "obj_load_order_prio", text = "obj_load_order_prio", ast = CFGFuncRoot "", _preds = [{(-2132577298,TT)},{(-1760449829,TT)},{(42246487,TT)},{(35078483,TT)}], __succs = [{(2048058025,TT)}]},TT)},{(CFGNode {_nID = -1065191568, _fname = "new_get_kernel_symbols", text = "new_get_kernel_symbols", ast = CFGFuncRoot "", _preds = [], __succs = [{(-296770615,TT)}]},TT)},{(CFGNode {_nID = 565918063, _fname = "obj_check_undefineds", text = "obj_check_undefineds", ast = CFGFuncRoot "", _preds = [{(316745576,TT)}], __succs = [{(1609893895,TT)}]},TT)},{(CFGNode {_nID = 702338729, _fname = "print_load_map", text = "print_load_map", ast = CFGFuncRoot "", _preds = [{(702338729,!CONFIG_FEATURE_INSMOD_LOAD_MAP), (0,CONFIG_FEATURE_INSMOD_LOAD_MAP)}], __succs = [{(702338729,!CONFIG_FEATURE_INSMOD_LOAD_MAP), (0,CONFIG_FEATURE_INSMOD_LOAD_MAP)}]},!CONFIG_FEATURE_INSMOD_LOAD_MAP)},{(CFGNode {_nID = 1528382426, _fname = "add_kernel_symbols", text = "add_kernel_symbols", ast = CFGFuncRoot "", _preds = [{(835404185,TT)},{(1782788864,TT)}], __succs = [{(-956687660,TT)}]},TT)},{(CFGNode {_nID = 2105494500, _fname = "add_ksymoops_symbols", text = "add_ksymoops_symbols", ast = CFGFuncRoot "", _preds = [{(1175760015,CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS), (0,!CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}], __succs = [{(-1742656354,CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS), (0,!CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}]},CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}]
+"With memoization:"
+[{(CFGNode {_nID = -1693852704, _fname = "print_load_map", text = "print_load_map", ast = CFGFuncRoot "", _preds = [{(-841743413,(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL)), (0,!(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL))},{(-1212486802,(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ !CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL)), (0,!(CONFIG_FEATURE_INSMOD_LOAD_MAP /\ !CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL))}], __succs = [{(-1524518227,CONFIG_FEATURE_INSMOD_LOAD_MAP), (0,!CONFIG_FEATURE_INSMOD_LOAD_MAP)}]},CONFIG_FEATURE_INSMOD_LOAD_MAP)},{(CFGNode {_nID = -1477121772, _fname = "obj_set_symbol_compare", text = "obj_set_symbol_compare", ast = CFGFuncRoot "", _preds = [{(1417050732,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)},{(985549465,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)}], __succs = [{(-1129519326,CONFIG_FEATURE_INSMOD_VERSION_CHECKING), (0,!CONFIG_FEATURE_INSMOD_VERSION_CHECKING)}]},CONFIG_FEATURE_INSMOD_VERSION_CHECKING)},{(CFGNode {_nID = -1448556945, _fname = "check_tainted_module", text = "check_tainted_module", ast = CFGFuncRoot "", _preds = [], __succs = [{(-1913464456,CONFIG_FEATURE_CHECK_TAINTED_MODULE), (0,!CONFIG_FEATURE_CHECK_TAINTED_MODULE)}]},CONFIG_FEATURE_CHECK_TAINTED_MODULE)},{(CFGNode {_nID = -1374042425, _fname = "obj_load_order_prio", text = "obj_load_order_prio", ast = CFGFuncRoot "", _preds = [{(-2132577298,TT)},{(-1760449829,TT)},{(42246487,TT)},{(35078483,TT)}], __succs = [{(2048058025,TT)}]},TT)},{(CFGNode {_nID = -1065191568, _fname = "new_get_kernel_symbols", text = "new_get_kernel_symbols", ast = CFGFuncRoot "", _preds = [], __succs = [{(-296770615,TT)}]},TT)},{(CFGNode {_nID = 267647876, _fname = "obj_insert_section_load_order", text = "obj_insert_section_load_order", ast = CFGFuncRoot "", _preds = [{(1760670434,TT)},{(-876054233,TT)}], __succs = [{(-660323894,TT)}]},TT)},{(CFGNode {_nID = 565918063, _fname = "obj_check_undefineds", text = "obj_check_undefineds", ast = CFGFuncRoot "", _preds = [{(316745576,TT)}], __succs = [{(1609893895,TT)}]},TT)},{(CFGNode {_nID = 1528382426, _fname = "add_kernel_symbols", text = "add_kernel_symbols", ast = CFGFuncRoot "", _preds = [{(835404185,TT)},{(1782788864,TT)}], __succs = [{(-956687660,TT)}]},TT)},{(CFGNode {_nID = 2105494500, _fname = "add_ksymoops_symbols", text = "add_ksymoops_symbols", ast = CFGFuncRoot "", _preds = [{(1175760015,CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS), (0,!CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}], __succs = [{(-1742656354,CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS), (0,!CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}]},CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/modutils-24.cfg
+Node#:           1238
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+benchmarking inputs/busybox/cfgs-1_18_5/modutils-24.cfg,1238,7,128,96,/originalFileDeep
+time                 17.27 s    (17.01 s .. 17.57 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 17.17 s    (17.10 s .. 17.22 s)
+std dev              66.87 ms   (28.30 ms .. 87.63 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/modutils-24.cfg,1238,7,128,96,/originalFileDeepMemo
+time                 14.83 s    (13.93 s .. 15.36 s)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 14.66 s    (14.44 s .. 14.80 s)
+std dev              225.7 ms   (110.9 ms .. 317.2 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/modutils-24.cfg
+Node#:           1237
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+benchmarking inputs/busybox/cfgs-1_19_0/modutils-24.cfg,1237,7,128,96,/evolvedFileDeep
+time                 18.55 s    (17.38 s .. 20.53 s)
+                     0.999 R²   (0.997 R² .. 1.000 R²)
+mean                 18.00 s    (17.79 s .. 18.34 s)
+std dev              319.8 ms   (15.64 ms .. 398.3 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/modutils-24.cfg,1237,7,128,96,/evolvedFileDeepMemo
+time                 2.179 ms   (2.158 ms .. 2.205 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 2.253 ms   (2.227 ms .. 2.290 ms)
+std dev              97.25 μs   (73.46 μs .. 121.6 μs)
+variance introduced by outliers: 28% (moderately inflated)
+
+"Done."

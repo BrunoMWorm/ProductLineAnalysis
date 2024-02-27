@@ -1,0 +1,61 @@
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/chat.cfg
+Node#:           258
+Features:        ["CONFIG_FEATURE_CHAT_IMPLICIT_CR","CONFIG_FEATURE_CHAT_SWALLOW_OPTS","CONFIG_FEATURE_CHAT_NOFAIL","CONFIG_FEATURE_CHAT_VAR_ABORT_LEN","CONFIG_FEATURE_CHAT_CLR_ABORT","CONFIG_FEATURE_CHAT_TTY_HIFI"]
+Feature#:        6
+Config#:         64
+Present config#: 64
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/chat.cfg
+Node#:           258
+Features:        ["CONFIG_FEATURE_CHAT_IMPLICIT_CR","CONFIG_FEATURE_CHAT_SWALLOW_OPTS","CONFIG_FEATURE_CHAT_NOFAIL","CONFIG_FEATURE_CHAT_VAR_ABORT_LEN","CONFIG_FEATURE_CHAT_CLR_ABORT","CONFIG_FEATURE_CHAT_TTY_HIFI"]
+Feature#:        6
+Config#:         64
+Present config#: 64
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/chat.cfg
+Node#:           258
+Features:        ["CONFIG_FEATURE_CHAT_IMPLICIT_CR","CONFIG_FEATURE_CHAT_SWALLOW_OPTS","CONFIG_FEATURE_CHAT_NOFAIL","CONFIG_FEATURE_CHAT_VAR_ABORT_LEN","CONFIG_FEATURE_CHAT_CLR_ABORT","CONFIG_FEATURE_CHAT_TTY_HIFI"]
+Feature#:        6
+Config#:         64
+Present config#: 64
+benchmarking inputs/busybox/cfgs-1_18_5/chat.cfg,258,6,64,64,/originalFileDeep
+time                 659.5 μs   (625.3 μs .. 703.6 μs)
+                     0.988 R²   (0.979 R² .. 0.999 R²)
+mean                 624.1 μs   (617.4 μs .. 641.1 μs)
+std dev              33.14 μs   (17.00 μs .. 56.88 μs)
+variance introduced by outliers: 46% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/chat.cfg,258,6,64,64,/originalFileDeepMemo
+time                 643.3 μs   (634.0 μs .. 655.8 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 633.6 μs   (627.0 μs .. 641.3 μs)
+std dev              23.59 μs   (20.02 μs .. 29.73 μs)
+variance introduced by outliers: 29% (moderately inflated)
+
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/chat.cfg
+Node#:           258
+Features:        ["CONFIG_FEATURE_CHAT_IMPLICIT_CR","CONFIG_FEATURE_CHAT_SWALLOW_OPTS","CONFIG_FEATURE_CHAT_NOFAIL","CONFIG_FEATURE_CHAT_VAR_ABORT_LEN","CONFIG_FEATURE_CHAT_CLR_ABORT","CONFIG_FEATURE_CHAT_TTY_HIFI"]
+Feature#:        6
+Config#:         64
+Present config#: 64
+benchmarking inputs/busybox/cfgs-1_19_0/chat.cfg,258,6,64,64,/evolvedFileDeep
+time                 655.2 μs   (642.6 μs .. 669.3 μs)
+                     0.997 R²   (0.996 R² .. 0.998 R²)
+mean                 645.5 μs   (637.5 μs .. 658.3 μs)
+std dev              31.26 μs   (24.02 μs .. 48.79 μs)
+variance introduced by outliers: 40% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/chat.cfg,258,6,64,64,/evolvedFileDeepMemo
+time                 684.8 μs   (669.6 μs .. 703.4 μs)
+                     0.995 R²   (0.991 R² .. 0.998 R²)
+mean                 669.8 μs   (660.2 μs .. 682.3 μs)
+std dev              36.43 μs   (28.00 μs .. 48.86 μs)
+variance introduced by outliers: 46% (moderately inflated)
+
+"Done."

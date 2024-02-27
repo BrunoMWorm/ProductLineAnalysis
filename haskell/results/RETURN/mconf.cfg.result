@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+"Without memoization:"
+[{(CFGNode {_nID = -1713351556, _fname = "build_conf", text = "build_conf", ast = CFGFuncRoot "", _preds = [], __succs = [{(1290932297,TT)}]},TT)},{(CFGNode {_nID = -571936959, _fname = "show_helptext", text = "show_helptext", ast = CFGFuncRoot "", _preds = [{(1502936426,TT)},{(1982669285,TT)},{(780749727,TT)},{(-1039791633,TT)},{(1492415284,TT)}], __succs = [{(1502936426,TT)}]},TT)},{(CFGNode {_nID = -134788251, _fname = "winch_handler", text = "winch_handler", ast = CFGFuncRoot "", _preds = [{(-710773625,TT)},{(492452702,TT)}], __succs = [{(492452702,TT)}]},TT)},{(CFGNode {_nID = -105721652, _fname = "cprint_init", text = "cprint_init", ast = CFGFuncRoot "", _preds = [{(2118266144,TT)},{(1360264694,TT)},{(1360387702,TT)},{(-671760467,TT)},{(-1699873359,TT)},{(-502933471,TT)},{(75637368,TT)},{(604672833,TT)},{(-932453757,TT)}], __succs = [{(-1969433285,TT)}]},TT)},{(CFGNode {_nID = 510437118, _fname = "get_symbol_str", text = "get_symbol_str", ast = CFGFuncRoot "", _preds = [{(2002660026,TT)},{(-248410711,TT)},{(-2058596785,TT)}], __succs = [{(960929755,TT)}]},TT)},{(CFGNode {_nID = 736986485, _fname = "show_textbox", text = "show_textbox", ast = CFGFuncRoot "", _preds = [{(1341279715,TT)},{(70925094,TT)},{(1502936426,TT)}], __succs = [{(1907173923,TT)}]},TT)},{(CFGNode {_nID = 1115186510, _fname = "show_help", text = "show_help", ast = CFGFuncRoot "", _preds = [{(2087349422,TT)}], __succs = [{(-1550910307,TT)}]},TT)},{(CFGNode {_nID = 1585223752, _fname = "init_wsize", text = "init_wsize", ast = CFGFuncRoot "", _preds = [{(-603432795,TT)},{(-1307054173,TT)}], __succs = [{(-432756515,TT)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = -1713351556, _fname = "build_conf", text = "build_conf", ast = CFGFuncRoot "", _preds = [], __succs = [{(1290932297,TT)}]},TT)},{(CFGNode {_nID = -571936959, _fname = "show_helptext", text = "show_helptext", ast = CFGFuncRoot "", _preds = [{(1502936426,TT)},{(1982669285,TT)},{(780749727,TT)},{(-1039791633,TT)},{(1492415284,TT)}], __succs = [{(1502936426,TT)}]},TT)},{(CFGNode {_nID = -134788251, _fname = "winch_handler", text = "winch_handler", ast = CFGFuncRoot "", _preds = [{(-710773625,TT)},{(492452702,TT)}], __succs = [{(492452702,TT)}]},TT)},{(CFGNode {_nID = -105721652, _fname = "cprint_init", text = "cprint_init", ast = CFGFuncRoot "", _preds = [{(2118266144,TT)},{(1360264694,TT)},{(1360387702,TT)},{(-671760467,TT)},{(-1699873359,TT)},{(-502933471,TT)},{(75637368,TT)},{(604672833,TT)},{(-932453757,TT)}], __succs = [{(-1969433285,TT)}]},TT)},{(CFGNode {_nID = 510437118, _fname = "get_symbol_str", text = "get_symbol_str", ast = CFGFuncRoot "", _preds = [{(2002660026,TT)},{(-248410711,TT)},{(-2058596785,TT)}], __succs = [{(960929755,TT)}]},TT)},{(CFGNode {_nID = 736986485, _fname = "show_textbox", text = "show_textbox", ast = CFGFuncRoot "", _preds = [{(1341279715,TT)},{(70925094,TT)},{(1502936426,TT)}], __succs = [{(1907173923,TT)}]},TT)},{(CFGNode {_nID = 1115186510, _fname = "show_help", text = "show_help", ast = CFGFuncRoot "", _preds = [{(2087349422,TT)}], __succs = [{(-1550910307,TT)}]},TT)},{(CFGNode {_nID = 1585223752, _fname = "init_wsize", text = "init_wsize", ast = CFGFuncRoot "", _preds = [{(-603432795,TT)},{(-1307054173,TT)}], __succs = [{(-432756515,TT)}]},TT)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_18_5/mconf.cfg,372,0,0,1,/originalFileDeep
+time                 2.350 s    (2.245 s .. 2.534 s)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 2.296 s    (2.276 s .. 2.328 s)
+std dev              30.27 ms   (747.3 μs .. 37.22 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/mconf.cfg,372,0,0,1,/originalFileDeepMemo
+time                 2.579 s    (2.251 s .. 2.896 s)
+                     0.997 R²   (0.997 R² .. 1.000 R²)
+mean                 2.423 s    (2.352 s .. 2.504 s)
+std dev              84.70 ms   (39.83 ms .. 118.6 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_19_0/mconf.cfg,372,0,0,1,/evolvedFileDeep
+time                 2.378 s    (2.259 s .. 2.485 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 2.473 s    (2.424 s .. 2.502 s)
+std dev              46.54 ms   (19.20 ms .. 60.26 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/mconf.cfg,372,0,0,1,/evolvedFileDeepMemo
+time                 546.3 μs   (505.1 μs .. 585.8 μs)
+                     0.966 R²   (0.953 R² .. 0.980 R²)
+mean                 549.8 μs   (524.9 μs .. 587.4 μs)
+std dev              106.0 μs   (80.29 μs .. 145.2 μs)
+variance introduced by outliers: 92% (severely inflated)
+
+"Done."

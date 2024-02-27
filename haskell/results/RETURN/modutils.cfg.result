@@ -1,0 +1,60 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+[{(CFGNode {_nID = -430332931, _fname = "replace", text = "replace", ast = CFGFuncRoot "", _preds = [{(432531060,TT)},{(-28890006,TT)}], __succs = [{(432531060,TT)}]},TT)},{(CFGNode {_nID = -342770179, _fname = "string_to_llist", text = "string_to_llist", ast = CFGFuncRoot "", _preds = [], __succs = [{(133427868,TT)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = -430332931, _fname = "replace", text = "replace", ast = CFGFuncRoot "", _preds = [{(432531060,TT)},{(-28890006,TT)}], __succs = [{(432531060,TT)}]},TT)},{(CFGNode {_nID = -342770179, _fname = "string_to_llist", text = "string_to_llist", ast = CFGFuncRoot "", _preds = [], __succs = [{(133427868,TT)}]},TT)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeep
+time                 2.573 ms   (2.540 ms .. 2.616 ms)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 2.706 ms   (2.670 ms .. 2.744 ms)
+std dev              126.5 μs   (112.0 μs .. 142.8 μs)
+variance introduced by outliers: 29% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeepMemo
+time                 2.640 ms   (2.606 ms .. 2.671 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 2.652 ms   (2.634 ms .. 2.676 ms)
+std dev              65.99 μs   (50.16 μs .. 91.30 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeep
+time                 2.771 ms   (2.741 ms .. 2.796 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 2.715 ms   (2.701 ms .. 2.731 ms)
+std dev              46.32 μs   (38.18 μs .. 54.27 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeepMemo
+time                 255.5 μs   (254.0 μs .. 257.3 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 260.4 μs   (258.4 μs .. 263.0 μs)
+std dev              7.699 μs   (5.892 μs .. 10.82 μs)
+variance introduced by outliers: 24% (moderately inflated)
+
+"Done."

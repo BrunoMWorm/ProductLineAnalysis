@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+[{(CFGNode {_nID = -233040068, _fname = "cksum_main", text = "cksum_main", ast = CFGFuncRoot "", _preds = [], __succs = [{(-265691259,TT)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = -233040068, _fname = "cksum_main", text = "cksum_main", ast = CFGFuncRoot "", _preds = [], __succs = [{(-265691259,TT)}]},TT)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeep
+time                 276.5 μs   (274.1 μs .. 279.1 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 276.1 μs   (274.1 μs .. 278.2 μs)
+std dev              6.819 μs   (5.033 μs .. 9.657 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeepMemo
+time                 278.0 μs   (274.8 μs .. 282.2 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 278.1 μs   (276.0 μs .. 280.7 μs)
+std dev              7.937 μs   (5.854 μs .. 11.50 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeep
+time                 280.9 μs   (277.0 μs .. 284.5 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 278.8 μs   (277.0 μs .. 281.2 μs)
+std dev              7.027 μs   (5.525 μs .. 8.871 μs)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeepMemo
+time                 128.7 μs   (128.0 μs .. 129.6 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 129.5 μs   (128.7 μs .. 130.5 μs)
+std dev              3.007 μs   (2.363 μs .. 3.998 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+"Done."

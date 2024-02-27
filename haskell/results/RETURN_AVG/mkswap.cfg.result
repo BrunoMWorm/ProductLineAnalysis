@@ -1,0 +1,59 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_SELINUX"]
+Feature#:        3
+Config#:         8
+Present config#: 8
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+"Without memoization:"
+{(2 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID))), (4 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (!CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (4 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (!CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (4 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (!CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID))), (4 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (!CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID)))}
+"With memoization:"
+{(2 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ !CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(!CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID))), (2 % 1,(CONFIG_FEATURE_CLEAN_UP /\ (CONFIG_SELINUX /\ CONFIG_FEATURE_MKSWAP_UUID))), (0 % 1,!CONFIG_SELINUX)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_18_5/mkswap.cfg,137,4,16,8,/originalFileDeep
+time                 4.986 ms   (4.941 ms .. 5.036 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 5.034 ms   (4.991 ms .. 5.082 ms)
+std dev              134.0 μs   (102.5 μs .. 187.4 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/mkswap.cfg,137,4,16,8,/originalFileDeepMemo
+time                 5.019 ms   (4.983 ms .. 5.048 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 5.013 ms   (4.988 ms .. 5.038 ms)
+std dev              79.87 μs   (65.51 μs .. 102.1 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_19_0/mkswap.cfg,137,4,16,8,/evolvedFileDeep
+time                 4.993 ms   (4.949 ms .. 5.035 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 4.998 ms   (4.972 ms .. 5.033 ms)
+std dev              91.14 μs   (71.93 μs .. 122.2 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/mkswap.cfg,137,4,16,8,/evolvedFileDeepMemo
+time                 163.2 μs   (162.2 μs .. 164.2 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 161.4 μs   (160.6 μs .. 162.3 μs)
+std dev              2.821 μs   (2.389 μs .. 3.356 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+"Done."

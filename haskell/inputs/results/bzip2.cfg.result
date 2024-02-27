@@ -1,0 +1,14 @@
+generateMTFValues
+BZ2_bsInitWrite
+bsW
+sendMTFValues
+bsPutU16
+handle_compress
+prepare_new_block
+BZ2_compressBlock
+BZ2_hbAssignCodes
+BZ2_blockSort
+BZ2_hbMakeCodeLengths
+bsPutU32
+bsFinishWrite
+bz_write

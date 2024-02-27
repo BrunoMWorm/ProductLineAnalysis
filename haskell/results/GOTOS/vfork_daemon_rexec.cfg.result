@@ -1,0 +1,61 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeep
+time                 515.3 μs   (512.5 μs .. 517.8 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 516.0 μs   (512.3 μs .. 528.3 μs)
+std dev              18.51 μs   (7.442 μs .. 38.87 μs)
+variance introduced by outliers: 28% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeepMemo
+time                 389.9 μs   (381.9 μs .. 400.2 μs)
+                     0.996 R²   (0.993 R² .. 0.998 R²)
+mean                 388.2 μs   (382.5 μs .. 397.7 μs)
+std dev              23.68 μs   (17.50 μs .. 39.04 μs)
+variance introduced by outliers: 56% (severely inflated)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeep
+time                 499.9 μs   (495.4 μs .. 504.3 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 503.1 μs   (499.8 μs .. 507.4 μs)
+std dev              11.80 μs   (9.260 μs .. 17.01 μs)
+variance introduced by outliers: 15% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeepMemo
+time                 375.5 μs   (365.3 μs .. 388.7 μs)
+                     0.995 R²   (0.991 R² .. 0.999 R²)
+mean                 366.9 μs   (363.6 μs .. 373.3 μs)
+std dev              14.61 μs   (9.210 μs .. 25.45 μs)
+variance introduced by outliers: 34% (moderately inflated)
+
+"Done."

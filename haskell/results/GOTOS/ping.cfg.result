@@ -1,0 +1,61 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/ping.cfg
+Node#:           491
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/ping.cfg
+Node#:           495
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/ping.cfg
+Node#:           491
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+benchmarking inputs/busybox/cfgs-1_18_5/ping.cfg,491,4,16,12,/originalFileDeep
+time                 1.398 ms   (1.380 ms .. 1.416 ms)
+                     0.997 R²   (0.995 R² .. 0.998 R²)
+mean                 1.404 ms   (1.378 ms .. 1.438 ms)
+std dev              99.32 μs   (69.69 μs .. 146.9 μs)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/ping.cfg,491,4,16,12,/originalFileDeepMemo
+time                 1.117 ms   (1.102 ms .. 1.131 ms)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 1.118 ms   (1.100 ms .. 1.144 ms)
+std dev              76.96 μs   (56.43 μs .. 117.9 μs)
+variance introduced by outliers: 55% (severely inflated)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/ping.cfg
+Node#:           495
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+benchmarking inputs/busybox/cfgs-1_19_0/ping.cfg,495,4,16,12,/evolvedFileDeep
+time                 1.410 ms   (1.391 ms .. 1.431 ms)
+                     0.997 R²   (0.995 R² .. 0.998 R²)
+mean                 1.415 ms   (1.391 ms .. 1.448 ms)
+std dev              91.55 μs   (69.56 μs .. 132.0 μs)
+variance introduced by outliers: 50% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/ping.cfg,495,4,16,12,/evolvedFileDeepMemo
+time                 1.127 ms   (1.115 ms .. 1.141 ms)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 1.136 ms   (1.115 ms .. 1.162 ms)
+std dev              78.96 μs   (60.10 μs .. 107.3 μs)
+variance introduced by outliers: 56% (severely inflated)
+
+"Done."

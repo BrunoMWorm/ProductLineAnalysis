@@ -1,0 +1,58 @@
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(680 % 11,(!CONFIG_FEATURE_IPV6 /\ !CONFIG_FEATURE_UDHCP_RFC3397)), (681 % 11,(CONFIG_FEATURE_IPV6 /\ !CONFIG_FEATURE_UDHCP_RFC3397)), (106 % 1,(!CONFIG_FEATURE_IPV6 /\ CONFIG_FEATURE_UDHCP_RFC3397)), (1167 % 11,(CONFIG_FEATURE_IPV6 /\ CONFIG_FEATURE_UDHCP_RFC3397))}
+"With memoization:"
+{(680 % 11,(!CONFIG_FEATURE_IPV6 /\ !CONFIG_FEATURE_UDHCP_RFC3397)), (681 % 11,(CONFIG_FEATURE_IPV6 /\ !CONFIG_FEATURE_UDHCP_RFC3397)), (106 % 1,(!CONFIG_FEATURE_IPV6 /\ CONFIG_FEATURE_UDHCP_RFC3397)), (1167 % 11,(CONFIG_FEATURE_IPV6 /\ CONFIG_FEATURE_UDHCP_RFC3397))}
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeep
+time                 40.60 ms   (40.06 ms .. 41.07 ms)
+                     0.999 R²   (0.997 R² .. 1.000 R²)
+mean                 41.04 ms   (40.79 ms .. 41.79 ms)
+std dev              761.5 μs   (353.1 μs .. 1.299 ms)
+
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeepMemo
+time                 41.58 ms   (40.85 ms .. 43.35 ms)
+                     0.997 R²   (0.991 R² .. 1.000 R²)
+mean                 41.22 ms   (40.86 ms .. 41.91 ms)
+std dev              984.8 μs   (503.5 μs .. 1.756 ms)
+
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeep
+time                 41.11 ms   (40.47 ms .. 42.03 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 41.12 ms   (40.74 ms .. 41.60 ms)
+std dev              851.1 μs   (642.7 μs .. 1.180 ms)
+
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeepMemo
+time                 371.3 μs   (366.5 μs .. 378.9 μs)
+                     0.995 R²   (0.989 R² .. 0.998 R²)
+mean                 379.7 μs   (373.1 μs .. 389.2 μs)
+std dev              25.12 μs   (17.07 μs .. 35.37 μs)
+variance introduced by outliers: 60% (severely inflated)
+
+"Done."

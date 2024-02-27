@@ -1,0 +1,59 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/fuser.cfg
+Node#:           226
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/fuser.cfg
+Node#:           190
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/fuser.cfg
+Node#:           226
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_18_5/fuser.cfg,226,0,0,1,/originalFileDeep
+time                 348.7 μs   (346.9 μs .. 350.1 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 347.6 μs   (346.0 μs .. 349.6 μs)
+std dev              5.613 μs   (4.559 μs .. 7.146 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/fuser.cfg,226,0,0,1,/originalFileDeepMemo
+time                 213.0 μs   (212.1 μs .. 214.2 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 214.0 μs   (212.7 μs .. 215.6 μs)
+std dev              4.904 μs   (4.040 μs .. 6.414 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/fuser.cfg
+Node#:           190
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_19_0/fuser.cfg,190,0,0,1,/evolvedFileDeep
+time                 286.3 μs   (285.3 μs .. 287.5 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 286.2 μs   (285.1 μs .. 287.6 μs)
+std dev              3.995 μs   (2.916 μs .. 6.367 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/fuser.cfg,190,0,0,1,/evolvedFileDeepMemo
+time                 177.1 μs   (176.2 μs .. 178.2 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 178.2 μs   (177.3 μs .. 179.6 μs)
+std dev              3.710 μs   (2.761 μs .. 5.487 μs)
+variance introduced by outliers: 14% (moderately inflated)
+
+"Done."

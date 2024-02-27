@@ -1,0 +1,61 @@
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_18_5/wc.cfg,188,5,32,8,/originalFileDeep
+time                 319.1 μs   (313.9 μs .. 326.2 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 315.3 μs   (313.1 μs .. 318.6 μs)
+std dev              8.896 μs   (6.798 μs .. 12.04 μs)
+variance introduced by outliers: 21% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/wc.cfg,188,5,32,8,/originalFileDeepMemo
+time                 206.7 μs   (205.8 μs .. 207.9 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 207.6 μs   (206.5 μs .. 209.7 μs)
+std dev              4.897 μs   (2.838 μs .. 8.000 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_19_0/wc.cfg,188,5,32,8,/evolvedFileDeep
+time                 313.4 μs   (311.6 μs .. 315.5 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 313.4 μs   (312.0 μs .. 315.5 μs)
+std dev              5.668 μs   (3.949 μs .. 8.227 μs)
+variance introduced by outliers: 10% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/wc.cfg,188,5,32,8,/evolvedFileDeepMemo
+time                 193.1 μs   (191.5 μs .. 194.8 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 192.4 μs   (191.4 μs .. 194.4 μs)
+std dev              4.690 μs   (3.105 μs .. 7.786 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+"Done."

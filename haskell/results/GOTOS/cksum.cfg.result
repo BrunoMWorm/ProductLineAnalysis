@@ -1,0 +1,60 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeep
+time                 165.1 μs   (164.2 μs .. 166.2 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 165.2 μs   (164.7 μs .. 166.0 μs)
+std dev              2.156 μs   (1.647 μs .. 3.111 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cksum.cfg,105,1,2,2,/originalFileDeepMemo
+time                 106.0 μs   (104.6 μs .. 108.3 μs)
+                     0.998 R²   (0.996 R² .. 1.000 R²)
+mean                 105.2 μs   (104.6 μs .. 106.3 μs)
+std dev              2.816 μs   (1.869 μs .. 4.664 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/cksum.cfg
+Node#:           105
+Features:        ["CONFIG_DESKTOP"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeep
+time                 166.1 μs   (165.2 μs .. 167.2 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 167.3 μs   (166.4 μs .. 168.8 μs)
+std dev              3.720 μs   (2.579 μs .. 5.528 μs)
+variance introduced by outliers: 16% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cksum.cfg,105,1,2,2,/evolvedFileDeepMemo
+time                 105.2 μs   (103.8 μs .. 106.9 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 104.1 μs   (103.5 μs .. 105.0 μs)
+std dev              2.402 μs   (1.726 μs .. 3.255 μs)
+variance introduced by outliers: 19% (moderately inflated)
+
+"Done."

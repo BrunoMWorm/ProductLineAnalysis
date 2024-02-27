@@ -1,0 +1,61 @@
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+[{(CFGNode {_nID = -2051143865, _fname = "moderror", text = "case 2:::moderror", ast = CFGStat (CCase (CConst (CIntConst 2 (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 1}))) (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(1944706875,TT)}]},TT)},{(CFGNode {_nID = -1714784424, _fname = "moderror", text = "case 38:::moderror", ast = CFGStat (CCase (CConst (CIntConst 38 (NodeInfo ("": line 196) (("": line 196),2) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 196) (("": line 196),1) (Name {nameId = 1}))) (NodeInfo ("": line 196) (("": line 196),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(937964617,TT)}]},TT)},{(CFGNode {_nID = -1358043129, _fname = "moderror", text = "case 3:::moderror", ast = CFGStat (CCase (CConst (CIntConst 3 (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 1}))) (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(1100580000,TT)}]},TT)},{(CFGNode {_nID = 445741610, _fname = "moderror", text = "case (- 1):::moderror", ast = CFGStat (CCase (CUnary CMinOp (CConst (CIntConst 1 (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 0})))) (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 1}))) (CExpr Nothing (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 2}))) (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 3}))), _preds = [{(-160413123,TT)}], __succs = [{(-190134730,TT)}]},TT)},{(CFGNode {_nID = 2107467278, _fname = "moderror", text = "case 8:::moderror", ast = CFGStat (CCase (CConst (CIntConst 8 (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 1}))) (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(120889309,TT)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = -2051143865, _fname = "moderror", text = "case 2:::moderror", ast = CFGStat (CCase (CConst (CIntConst 2 (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 1}))) (NodeInfo ("": line 192) (("": line 192),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(1944706875,TT)}]},TT)},{(CFGNode {_nID = -1714784424, _fname = "moderror", text = "case 38:::moderror", ast = CFGStat (CCase (CConst (CIntConst 38 (NodeInfo ("": line 196) (("": line 196),2) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 196) (("": line 196),1) (Name {nameId = 1}))) (NodeInfo ("": line 196) (("": line 196),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(937964617,TT)}]},TT)},{(CFGNode {_nID = -1358043129, _fname = "moderror", text = "case 3:::moderror", ast = CFGStat (CCase (CConst (CIntConst 3 (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 1}))) (NodeInfo ("": line 194) (("": line 194),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(1100580000,TT)}]},TT)},{(CFGNode {_nID = 445741610, _fname = "moderror", text = "case (- 1):::moderror", ast = CFGStat (CCase (CUnary CMinOp (CConst (CIntConst 1 (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 0})))) (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 1}))) (CExpr Nothing (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 2}))) (NodeInfo ("": line 188) (("": line 188),1) (Name {nameId = 3}))), _preds = [{(-160413123,TT)}], __succs = [{(-190134730,TT)}]},TT)},{(CFGNode {_nID = 2107467278, _fname = "moderror", text = "case 8:::moderror", ast = CFGStat (CCase (CConst (CIntConst 8 (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 0})))) (CExpr Nothing (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 1}))) (NodeInfo ("": line 190) (("": line 190),1) (Name {nameId = 2}))), _preds = [{(-160413123,TT)}], __succs = [{(120889309,TT)}]},TT)}]
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeep
+time                 702.6 μs   (691.4 μs .. 717.8 μs)
+                     0.996 R²   (0.991 R² .. 0.999 R²)
+mean                 684.9 μs   (676.0 μs .. 704.2 μs)
+std dev              40.20 μs   (23.34 μs .. 71.95 μs)
+variance introduced by outliers: 50% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeepMemo
+time                 341.7 μs   (335.4 μs .. 349.6 μs)
+                     0.995 R²   (0.990 R² .. 0.998 R²)
+mean                 346.7 μs   (340.1 μs .. 357.5 μs)
+std dev              29.32 μs   (18.49 μs .. 45.96 μs)
+variance introduced by outliers: 72% (severely inflated)
+
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeep
+time                 714.7 μs   (696.8 μs .. 729.4 μs)
+                     0.996 R²   (0.994 R² .. 0.998 R²)
+mean                 703.8 μs   (695.4 μs .. 714.2 μs)
+std dev              29.69 μs   (24.99 μs .. 38.52 μs)
+variance introduced by outliers: 34% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeepMemo
+time                 249.2 μs   (244.9 μs .. 253.1 μs)
+                     0.997 R²   (0.995 R² .. 0.999 R²)
+mean                 246.2 μs   (242.7 μs .. 251.0 μs)
+std dev              13.93 μs   (9.721 μs .. 22.74 μs)
+variance introduced by outliers: 54% (severely inflated)
+
+"Done."

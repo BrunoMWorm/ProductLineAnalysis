@@ -1,0 +1,4 @@
+save_nofork_data
+run_nofork_applet
+run_nofork_applet_prime
+spawn

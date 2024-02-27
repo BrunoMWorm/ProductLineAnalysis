@@ -1,0 +1,57 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(33 % 8,!CONFIG_FEATURE_INSMOD_TRY_MMAP), (38 % 9,CONFIG_FEATURE_INSMOD_TRY_MMAP)}
+"With memoization:"
+{(38 % 9,CONFIG_FEATURE_INSMOD_TRY_MMAP), (0 % 1,!CONFIG_FEATURE_INSMOD_TRY_MMAP)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/modutils.cfg
+Node#:           208
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeep
+time                 2.707 ms   (2.692 ms .. 2.721 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 2.696 ms   (2.682 ms .. 2.711 ms)
+std dev              47.08 μs   (38.41 μs .. 61.65 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/modutils.cfg,208,2,4,4,/originalFileDeepMemo
+time                 2.731 ms   (2.713 ms .. 2.751 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 2.714 ms   (2.700 ms .. 2.731 ms)
+std dev              53.66 μs   (42.03 μs .. 72.33 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/modutils.cfg
+Node#:           215
+Features:        ["CONFIG_FEATURE_2_4_MODULES","CONFIG_FEATURE_INSMOD_TRY_MMAP"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeep
+time                 2.798 ms   (2.778 ms .. 2.825 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 2.806 ms   (2.791 ms .. 2.821 ms)
+std dev              45.36 μs   (37.51 μs .. 60.26 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/modutils.cfg,215,2,4,4,/evolvedFileDeepMemo
+time                 252.3 μs   (251.0 μs .. 253.9 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 251.2 μs   (250.0 μs .. 252.6 μs)
+std dev              4.333 μs   (3.520 μs .. 6.257 μs)
+
+"Done."

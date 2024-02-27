@@ -1,0 +1,60 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/ping.cfg
+Node#:           491
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/ping.cfg
+Node#:           495
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+"Without memoization:"
+{(64 % 7,(CONFIG_PING6 /\ !CONFIG_FEATURE_FANCY_PING)), (40 % 11,(!CONFIG_PING6 /\ CONFIG_FEATURE_FANCY_PING)), (53 % 16,(CONFIG_PING6 /\ CONFIG_FEATURE_FANCY_PING)), (7 % 5,(!CONFIG_PING6 /\ !CONFIG_FEATURE_FANCY_PING))}
+"With memoization:"
+{(0 % 1,(!CONFIG_PING6 /\ !CONFIG_FEATURE_FANCY_PING)), (0 % 1,(CONFIG_PING6 /\ CONFIG_FEATURE_FANCY_PING)), (0 % 1,(!CONFIG_PING6 /\ CONFIG_FEATURE_FANCY_PING)), (0 % 1,(CONFIG_PING6 /\ !CONFIG_FEATURE_FANCY_PING))}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/ping.cfg
+Node#:           491
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+benchmarking inputs/busybox/cfgs-1_18_5/ping.cfg,491,4,16,12,/originalFileDeep
+time                 163.0 ms   (161.7 ms .. 164.3 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 162.7 ms   (161.7 ms .. 164.0 ms)
+std dev              1.608 ms   (989.9 μs .. 2.542 ms)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/ping.cfg,491,4,16,12,/originalFileDeepMemo
+time                 19.00 ms   (18.79 ms .. 19.22 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 18.94 ms   (18.78 ms .. 19.12 ms)
+std dev              401.3 μs   (295.7 μs .. 622.5 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/ping.cfg
+Node#:           495
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_IPV6","CONFIG_FEATURE_FANCY_PING","CONFIG_PING6"]
+Feature#:        4
+Config#:         16
+Present config#: 12
+benchmarking inputs/busybox/cfgs-1_19_0/ping.cfg,495,4,16,12,/evolvedFileDeep
+time                 167.1 ms   (166.1 ms .. 169.5 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 166.0 ms   (165.3 ms .. 167.0 ms)
+std dev              1.233 ms   (801.9 μs .. 1.877 ms)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/ping.cfg,495,4,16,12,/evolvedFileDeepMemo
+time                 1.169 ms   (1.153 ms .. 1.184 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 1.177 ms   (1.167 ms .. 1.192 ms)
+std dev              43.33 μs   (30.21 μs .. 63.04 μs)
+variance introduced by outliers: 26% (moderately inflated)
+
+"Done."

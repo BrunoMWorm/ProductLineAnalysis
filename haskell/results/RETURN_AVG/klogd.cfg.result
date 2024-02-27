@@ -1,0 +1,58 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+"Without memoization:"
+{(5 % 1,(CONFIG_NOMMU /\ CONFIG_FEATURE_KLOGD_KLOGCTL)), (5 % 1,(!CONFIG_NOMMU /\ CONFIG_FEATURE_KLOGD_KLOGCTL)), (5 % 1,(CONFIG_NOMMU /\ !CONFIG_FEATURE_KLOGD_KLOGCTL)), (5 % 1,(!CONFIG_NOMMU /\ !CONFIG_FEATURE_KLOGD_KLOGCTL))}
+"With memoization:"
+{(0 % 1,CONFIG_FEATURE_KLOGD_KLOGCTL), (0 % 1,!CONFIG_FEATURE_KLOGD_KLOGCTL)}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+benchmarking inputs/busybox/cfgs-1_18_5/klogd.cfg,194,3,8,6,/originalFileDeep
+time                 26.95 ms   (26.66 ms .. 27.29 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 27.08 ms   (26.92 ms .. 27.24 ms)
+std dev              345.6 μs   (280.4 μs .. 428.8 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/klogd.cfg,194,3,8,6,/originalFileDeepMemo
+time                 27.05 ms   (26.77 ms .. 27.31 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 26.98 ms   (26.80 ms .. 27.16 ms)
+std dev              414.7 μs   (298.7 μs .. 605.1 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+benchmarking inputs/busybox/cfgs-1_19_0/klogd.cfg,194,3,8,6,/evolvedFileDeep
+time                 26.84 ms   (26.60 ms .. 27.15 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 26.92 ms   (26.81 ms .. 27.09 ms)
+std dev              282.4 μs   (190.2 μs .. 450.2 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/klogd.cfg,194,3,8,6,/evolvedFileDeepMemo
+time                 274.4 μs   (272.3 μs .. 277.7 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 277.9 μs   (274.9 μs .. 282.6 μs)
+std dev              12.27 μs   (8.461 μs .. 21.41 μs)
+variance introduced by outliers: 41% (moderately inflated)
+
+"Done."

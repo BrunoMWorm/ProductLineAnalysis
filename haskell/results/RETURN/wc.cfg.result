@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+"Without memoization:"
+[{(CFGNode {_nID = 1727978085, _fname = "wc_main", text = "wc_main", ast = CFGFuncRoot "", _preds = [{(-1347177436,TT)}], __succs = [{(1706959951,TT)}]},TT)}]
+"With memoization:"
+[{(CFGNode {_nID = 1727978085, _fname = "wc_main", text = "wc_main", ast = CFGFuncRoot "", _preds = [{(-1347177436,TT)}], __succs = [{(1706959951,TT)}]},TT)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_18_5/wc.cfg,188,5,32,8,/originalFileDeep
+time                 330.2 μs   (326.7 μs .. 333.2 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 325.7 μs   (323.4 μs .. 328.3 μs)
+std dev              8.266 μs   (6.663 μs .. 10.56 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/wc.cfg,188,5,32,8,/originalFileDeepMemo
+time                 330.3 μs   (326.5 μs .. 334.3 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 331.9 μs   (329.5 μs .. 335.4 μs)
+std dev              9.603 μs   (7.197 μs .. 13.79 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/wc.cfg
+Node#:           188
+Features:        ["CONFIG_FEATURE_CHECK_UNICODE_IN_ENV","CONFIG_UNICODE_SUPPORT","CONFIG_UNICODE_USING_LOCALE","CONFIG_LOCALE_SUPPORT","CONFIG_FEATURE_WC_LARGE"]
+Feature#:        5
+Config#:         32
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_19_0/wc.cfg,188,5,32,8,/evolvedFileDeep
+time                 327.1 μs   (323.1 μs .. 331.8 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 323.6 μs   (321.3 μs .. 326.1 μs)
+std dev              8.396 μs   (6.774 μs .. 10.42 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/wc.cfg,188,5,32,8,/evolvedFileDeepMemo
+time                 312.0 μs   (308.1 μs .. 316.9 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 315.8 μs   (312.6 μs .. 320.3 μs)
+std dev              12.56 μs   (8.567 μs .. 21.29 μs)
+variance introduced by outliers: 36% (moderately inflated)
+
+"Done."

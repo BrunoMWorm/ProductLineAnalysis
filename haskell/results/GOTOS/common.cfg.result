@@ -1,0 +1,59 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(0 % 1,TT)}
+"With memoization:"
+{(0 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeep
+time                 903.7 μs   (896.2 μs .. 911.5 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 902.8 μs   (898.9 μs .. 909.6 μs)
+std dev              17.08 μs   (11.59 μs .. 25.78 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/common.cfg,342,2,4,4,/originalFileDeepMemo
+time                 629.3 μs   (626.5 μs .. 632.2 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 628.3 μs   (625.8 μs .. 631.9 μs)
+std dev              10.27 μs   (7.745 μs .. 15.13 μs)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/common.cfg
+Node#:           342
+Features:        ["CONFIG_FEATURE_IPV6","CONFIG_FEATURE_UDHCP_RFC3397"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeep
+time                 913.1 μs   (901.8 μs .. 925.5 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 909.1 μs   (904.5 μs .. 914.7 μs)
+std dev              18.06 μs   (13.46 μs .. 24.87 μs)
+variance introduced by outliers: 10% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/common.cfg,342,2,4,4,/evolvedFileDeepMemo
+time                 630.7 μs   (628.1 μs .. 633.3 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 632.0 μs   (628.7 μs .. 638.5 μs)
+std dev              14.62 μs   (7.845 μs .. 22.74 μs)
+variance introduced by outliers: 14% (moderately inflated)
+
+"Done."

@@ -1,0 +1,61 @@
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_SELINUX"]
+Feature#:        3
+Config#:         8
+Present config#: 8
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_18_5/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_18_5/mkswap.cfg,137,4,16,8,/originalFileDeep
+time                 246.0 μs   (242.2 μs .. 251.7 μs)
+                     0.996 R²   (0.994 R² .. 0.998 R²)
+mean                 253.8 μs   (249.8 μs .. 258.3 μs)
+std dev              14.54 μs   (10.98 μs .. 20.19 μs)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/mkswap.cfg,137,4,16,8,/originalFileDeepMemo
+time                 247.0 μs   (244.8 μs .. 249.1 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 246.2 μs   (245.0 μs .. 248.0 μs)
+std dev              4.970 μs   (3.633 μs .. 7.586 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+Analysis:        CaseTermination
+File:            inputs/busybox/cfgs-1_19_0/mkswap.cfg
+Node#:           137
+Features:        ["CONFIG_FEATURE_MKSWAP_UUID","CONFIG_FEATURE_CLEAN_UP","CONFIG_LFS","CONFIG_SELINUX"]
+Feature#:        4
+Config#:         16
+Present config#: 8
+benchmarking inputs/busybox/cfgs-1_19_0/mkswap.cfg,137,4,16,8,/evolvedFileDeep
+time                 242.6 μs   (240.8 μs .. 244.6 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 243.5 μs   (242.3 μs .. 245.2 μs)
+std dev              4.788 μs   (3.363 μs .. 7.073 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/mkswap.cfg,137,4,16,8,/evolvedFileDeepMemo
+time                 248.0 μs   (246.2 μs .. 250.2 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 248.0 μs   (246.7 μs .. 249.7 μs)
+std dev              5.022 μs   (3.923 μs .. 7.399 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+"Done."

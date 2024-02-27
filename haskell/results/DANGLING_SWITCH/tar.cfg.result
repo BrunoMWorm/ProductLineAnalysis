@@ -1,0 +1,60 @@
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/tar.cfg
+Node#:           386
+Features:        ["CONFIG_FEATURE_TAR_GNU_EXTENSIONS","CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_TAR_LONG_OPTIONS","CONFIG_FEATURE_TAR_FROM","CONFIG_FEATURE_PREFER_APPLETS","CONFIG_FEATURE_GETOPT_LONG","CONFIG_FEATURE_SEAMLESS_Z","CONFIG_FEATURE_SEAMLESS_BZ2","CONFIG_FEATURE_SEAMLESS_GZ","CONFIG_LONG_OPTS","CONFIG_FEATURE_TAR_CREATE"]
+Feature#:        11
+Config#:         2048
+Present config#: 490
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/tar.cfg
+Node#:           319
+Features:        ["CONFIG_FEATURE_TAR_GNU_EXTENSIONS","CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_TAR_LONG_OPTIONS","CONFIG_LFS","CONFIG_FEATURE_TAR_FROM","CONFIG_FEATURE_PREFER_APPLETS","CONFIG_FEATURE_GETOPT_LONG","CONFIG_FEATURE_SEAMLESS_Z","CONFIG_FEATURE_SEAMLESS_BZ2","CONFIG_FEATURE_SEAMLESS_GZ","CONFIG_LONG_OPTS","CONFIG_FEATURE_TAR_CREATE"]
+Feature#:        12
+Config#:         4096
+Present config#: 490
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/tar.cfg
+Node#:           386
+Features:        ["CONFIG_FEATURE_TAR_GNU_EXTENSIONS","CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_TAR_LONG_OPTIONS","CONFIG_LFS","CONFIG_FEATURE_TAR_FROM","CONFIG_FEATURE_PREFER_APPLETS","CONFIG_FEATURE_GETOPT_LONG","CONFIG_FEATURE_SEAMLESS_Z","CONFIG_FEATURE_SEAMLESS_BZ2","CONFIG_FEATURE_SEAMLESS_GZ","CONFIG_LONG_OPTS","CONFIG_FEATURE_TAR_CREATE"]
+Feature#:        12
+Config#:         4096
+Present config#: 490
+benchmarking inputs/busybox/cfgs-1_18_5/tar.cfg,386,12,4096,490,/originalFileDeep
+time                 1.202 ms   (1.183 ms .. 1.222 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 1.192 ms   (1.185 ms .. 1.203 ms)
+std dev              29.03 μs   (21.59 μs .. 40.96 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/tar.cfg,386,12,4096,490,/originalFileDeepMemo
+time                 1.245 ms   (1.223 ms .. 1.274 ms)
+                     0.998 R²   (0.996 R² .. 1.000 R²)
+mean                 1.233 ms   (1.226 ms .. 1.247 ms)
+std dev              31.05 μs   (21.33 μs .. 50.03 μs)
+variance introduced by outliers: 14% (moderately inflated)
+
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/tar.cfg
+Node#:           319
+Features:        ["CONFIG_FEATURE_TAR_GNU_EXTENSIONS","CONFIG_FEATURE_CLEAN_UP","CONFIG_FEATURE_TAR_LONG_OPTIONS","CONFIG_LFS","CONFIG_FEATURE_TAR_FROM","CONFIG_FEATURE_PREFER_APPLETS","CONFIG_FEATURE_GETOPT_LONG","CONFIG_FEATURE_SEAMLESS_Z","CONFIG_FEATURE_SEAMLESS_BZ2","CONFIG_FEATURE_SEAMLESS_GZ","CONFIG_LONG_OPTS","CONFIG_FEATURE_TAR_CREATE"]
+Feature#:        12
+Config#:         4096
+Present config#: 490
+benchmarking inputs/busybox/cfgs-1_19_0/tar.cfg,319,12,4096,490,/evolvedFileDeep
+time                 968.7 μs   (961.2 μs .. 976.4 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 962.6 μs   (958.3 μs .. 967.4 μs)
+std dev              16.51 μs   (12.68 μs .. 22.77 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/tar.cfg,319,12,4096,490,/evolvedFileDeepMemo
+time                 998.9 μs   (976.0 μs .. 1.029 ms)
+                     0.998 R²   (0.996 R² .. 1.000 R²)
+mean                 981.1 μs   (976.0 μs .. 989.8 μs)
+std dev              22.40 μs   (14.81 μs .. 38.80 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+"Done."

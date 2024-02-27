@@ -1,0 +1,60 @@
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O"]
+Feature#:        3
+Config#:         8
+Present config#: 10
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+"Without memoization:"
+[]
+"With memoization:"
+[]
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_18_5/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+benchmarking inputs/busybox/cfgs-1_18_5/cpio.cfg,276,4,16,10,/originalFileDeep
+time                 601.0 μs   (597.9 μs .. 604.5 μs)
+                     0.998 R²   (0.997 R² .. 1.000 R²)
+mean                 620.0 μs   (608.9 μs .. 638.1 μs)
+std dev              46.07 μs   (25.23 μs .. 67.89 μs)
+variance introduced by outliers: 62% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/cpio.cfg,276,4,16,10,/originalFileDeepMemo
+time                 628.6 μs   (625.6 μs .. 631.3 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 629.0 μs   (626.3 μs .. 632.4 μs)
+std dev              10.49 μs   (8.291 μs .. 13.68 μs)
+
+Analysis:        DanglingSwitch
+File:            inputs/busybox/cfgs-1_19_0/cpio.cfg
+Node#:           276
+Features:        ["CONFIG_LONG_OPTS","CONFIG_NOMMU","CONFIG_FEATURE_CPIO_O","CONFIG_FEATURE_CPIO_P"]
+Feature#:        4
+Config#:         16
+Present config#: 10
+benchmarking inputs/busybox/cfgs-1_19_0/cpio.cfg,276,4,16,10,/evolvedFileDeep
+time                 601.1 μs   (596.5 μs .. 606.1 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 601.2 μs   (598.1 μs .. 605.3 μs)
+std dev              11.51 μs   (9.221 μs .. 14.92 μs)
+variance introduced by outliers: 10% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/cpio.cfg,276,4,16,10,/evolvedFileDeepMemo
+time                 625.5 μs   (623.4 μs .. 627.8 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 628.7 μs   (625.7 μs .. 633.7 μs)
+std dev              13.00 μs   (8.542 μs .. 20.19 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+"Done."

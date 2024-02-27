@@ -1,0 +1,61 @@
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+"Without memoization:"
+{(68965 % 23,TT)}
+"With memoization:"
+{(68965 % 23,TT)}
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_18_5/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_18_5/mconf.cfg,372,0,0,1,/originalFileDeep
+time                 2.222 s    (2.180 s .. 2.260 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 2.239 s    (2.230 s .. 2.246 s)
+std dev              9.779 ms   (4.619 ms .. 13.62 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/mconf.cfg,372,0,0,1,/originalFileDeepMemo
+time                 2.211 s    (2.175 s .. 2.251 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 2.239 s    (2.224 s .. 2.263 s)
+std dev              23.74 ms   (538.5 μs .. 29.00 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+Analysis:        Call Density
+File:            inputs/busybox/cfgs-1_19_0/mconf.cfg
+Node#:           372
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_19_0/mconf.cfg,372,0,0,1,/evolvedFileDeep
+time                 2.227 s    (2.163 s .. 2.284 s)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 2.237 s    (2.227 s .. 2.246 s)
+std dev              10.70 ms   (9.120 ms .. 12.24 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/mconf.cfg,372,0,0,1,/evolvedFileDeepMemo
+time                 388.6 μs   (385.6 μs .. 392.0 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 388.3 μs   (386.0 μs .. 392.0 μs)
+std dev              9.566 μs   (6.390 μs .. 16.24 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+"Done."

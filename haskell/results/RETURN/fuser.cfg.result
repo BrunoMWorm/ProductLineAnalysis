@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/fuser.cfg
+Node#:           226
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/fuser.cfg
+Node#:           190
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+"Without memoization:"
+[{(CFGNode {_nID = -971705078, _fname = "fuser_main", text = "fuser_main", ast = CFGFuncRoot "", _preds = [], __succs = [{(-1667621612,TT)}]},TT)}]
+"With memoization:"
+[]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/fuser.cfg
+Node#:           226
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_18_5/fuser.cfg,226,0,0,1,/originalFileDeep
+time                 1.142 ms   (1.133 ms .. 1.152 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 1.130 ms   (1.121 ms .. 1.140 ms)
+std dev              31.06 μs   (26.08 μs .. 37.86 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/fuser.cfg,226,0,0,1,/originalFileDeepMemo
+time                 1.140 ms   (1.129 ms .. 1.156 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 1.148 ms   (1.139 ms .. 1.158 ms)
+std dev              32.57 μs   (26.40 μs .. 41.40 μs)
+variance introduced by outliers: 17% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/fuser.cfg
+Node#:           190
+Features:        []
+Feature#:        0
+Config#:         0
+Present config#: 1
+benchmarking inputs/busybox/cfgs-1_19_0/fuser.cfg,190,0,0,1,/evolvedFileDeep
+time                 935.7 μs   (928.2 μs .. 945.1 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 938.8 μs   (933.7 μs .. 946.2 μs)
+std dev              20.93 μs   (16.39 μs .. 28.81 μs)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/fuser.cfg,190,0,0,1,/evolvedFileDeepMemo
+time                 584.5 μs   (577.7 μs .. 592.0 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 585.0 μs   (580.9 μs .. 591.9 μs)
+std dev              17.95 μs   (12.29 μs .. 29.53 μs)
+variance introduced by outliers: 22% (moderately inflated)
+
+"Done."

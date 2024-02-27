@@ -1,0 +1,61 @@
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/modutils-24.cfg
+Node#:           1238
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/modutils-24.cfg
+Node#:           1237
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+"Without memoization:"
+{(2 % 1,TT)}
+"With memoization:"
+{(2 % 1,TT)}
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_18_5/modutils-24.cfg
+Node#:           1238
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+benchmarking inputs/busybox/cfgs-1_18_5/modutils-24.cfg,1238,7,128,96,/originalFileDeep
+time                 4.431 ms   (4.309 ms .. 4.580 ms)
+                     0.989 R²   (0.982 R² .. 0.994 R²)
+mean                 4.538 ms   (4.428 ms .. 4.678 ms)
+std dev              388.1 μs   (294.2 μs .. 543.6 μs)
+variance introduced by outliers: 54% (severely inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/modutils-24.cfg,1238,7,128,96,/originalFileDeepMemo
+time                 4.112 ms   (3.998 ms .. 4.252 ms)
+                     0.991 R²   (0.986 R² .. 0.996 R²)
+mean                 4.075 ms   (4.010 ms .. 4.191 ms)
+std dev              269.9 μs   (182.9 μs .. 425.3 μs)
+variance introduced by outliers: 42% (moderately inflated)
+
+Analysis:        Goto Density
+File:            inputs/busybox/cfgs-1_19_0/modutils-24.cfg
+Node#:           1237
+Features:        ["CONFIG_FEATURE_INSMOD_VERSION_CHECKING","CONFIG_FEATURE_INSMOD_TRY_MMAP","CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL","CONFIG_FEATURE_INSMOD_LOAD_MAP","CONFIG_FEATURE_INSMOD_LOADINKMEM","CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS","CONFIG_FEATURE_CHECK_TAINTED_MODULE"]
+Feature#:        7
+Config#:         128
+Present config#: 96
+benchmarking inputs/busybox/cfgs-1_19_0/modutils-24.cfg,1237,7,128,96,/evolvedFileDeep
+time                 4.418 ms   (4.285 ms .. 4.562 ms)
+                     0.991 R²   (0.986 R² .. 0.996 R²)
+mean                 4.398 ms   (4.327 ms .. 4.505 ms)
+std dev              283.8 μs   (191.0 μs .. 496.0 μs)
+variance introduced by outliers: 40% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/modutils-24.cfg,1237,7,128,96,/evolvedFileDeepMemo
+time                 4.087 ms   (3.937 ms .. 4.255 ms)
+                     0.988 R²   (0.981 R² .. 0.994 R²)
+mean                 4.087 ms   (4.013 ms .. 4.206 ms)
+std dev              295.2 μs   (184.0 μs .. 438.1 μs)
+variance introduced by outliers: 46% (moderately inflated)
+
+"Done."

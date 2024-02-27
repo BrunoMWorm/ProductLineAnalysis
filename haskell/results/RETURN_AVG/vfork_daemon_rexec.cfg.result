@@ -1,0 +1,58 @@
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+"Without memoization:"
+{(10 % 1,(!CONFIG_NOMMU /\ !CONFIG_FEATURE_PREFER_APPLETS)), (52 % 7,(CONFIG_NOMMU /\ !CONFIG_FEATURE_PREFER_APPLETS)), (29 % 4,(CONFIG_FEATURE_PREFER_APPLETS /\ !CONFIG_NOMMU)), (29 % 5,(CONFIG_FEATURE_PREFER_APPLETS /\ CONFIG_NOMMU))}
+"With memoization:"
+{(63 % 10,(CONFIG_FEATURE_PREFER_APPLETS /\ CONFIG_NOMMU)), (0 % 1,(CONFIG_FEATURE_PREFER_APPLETS /\ !CONFIG_NOMMU)), (0 % 1,(CONFIG_NOMMU /\ !CONFIG_FEATURE_PREFER_APPLETS)), (0 % 1,(!CONFIG_NOMMU /\ !CONFIG_FEATURE_PREFER_APPLETS))}
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg
+Node#:           238
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeep
+time                 7.990 ms   (7.928 ms .. 8.057 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 7.984 ms   (7.931 ms .. 8.049 ms)
+std dev              173.8 μs   (130.3 μs .. 233.4 μs)
+
+benchmarking inputs/busybox/cfgs-1_18_5/vfork_daemon_rexec.cfg,238,2,4,4,/originalFileDeepMemo
+time                 5.452 ms   (5.405 ms .. 5.491 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 5.502 ms   (5.463 ms .. 5.561 ms)
+std dev              151.2 μs   (107.4 μs .. 238.5 μs)
+
+Analysis:        Return Average
+File:            inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg
+Node#:           232
+Features:        ["CONFIG_NOMMU","CONFIG_FEATURE_PREFER_APPLETS"]
+Feature#:        2
+Config#:         4
+Present config#: 4
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeep
+time                 7.960 ms   (7.884 ms .. 8.038 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 7.939 ms   (7.891 ms .. 8.004 ms)
+std dev              156.8 μs   (121.8 μs .. 227.3 μs)
+
+benchmarking inputs/busybox/cfgs-1_19_0/vfork_daemon_rexec.cfg,232,2,4,4,/evolvedFileDeepMemo
+time                 423.0 μs   (420.4 μs .. 426.1 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 421.7 μs   (419.2 μs .. 424.6 μs)
+std dev              8.973 μs   (6.819 μs .. 11.73 μs)
+variance introduced by outliers: 13% (moderately inflated)
+
+"Done."

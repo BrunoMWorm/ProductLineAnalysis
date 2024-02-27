@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+"Without memoization:"
+[{(CFGNode {_nID = -1210968905, _fname = "klogd_open", text = "klogd_open", ast = CFGFuncRoot "", _preds = [{(-586466767,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(-1322652517,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-586466767,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}]},CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = -772271929, _fname = "klogd_setloglevel", text = "klogd_setloglevel", ast = CFGFuncRoot "", _preds = [{(-1937668373,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(248422938,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-1937668373,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}]},CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = 160901170, _fname = "klogd_open", text = "klogd_open", ast = CFGFuncRoot "", _preds = [{(-292553781,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(-1322652517,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-13601545,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}]},!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = 424511992, _fname = "klogd_close", text = "klogd_close", ast = CFGFuncRoot "", _preds = [{(1459884741,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(136842500,(!CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL)), (0,!(!CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL))},{(-172047713,(CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL)), (0,!(CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL))},{(60159736,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-1723390975,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}]},!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = 875605538, _fname = "klogd_setloglevel", text = "klogd_setloglevel", ast = CFGFuncRoot "", _preds = [{(-1017306200,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(-200215155,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(-1723390975,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(248422938,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-457631250,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}]},!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = 2122670641, _fname = "klogd_close", text = "klogd_close", ast = CFGFuncRoot "", _preds = [{(-616704681,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(60159736,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-244720206,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}]},CONFIG_FEATURE_KLOGD_KLOGCTL)}]
+"With memoization:"
+[{(CFGNode {_nID = -1210968905, _fname = "klogd_open", text = "klogd_open", ast = CFGFuncRoot "", _preds = [{(-586466767,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(-1322652517,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-586466767,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}]},CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = -772271929, _fname = "klogd_setloglevel", text = "klogd_setloglevel", ast = CFGFuncRoot "", _preds = [{(-1937668373,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)},{(248422938,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-1937668373,CONFIG_FEATURE_KLOGD_KLOGCTL), (0,!CONFIG_FEATURE_KLOGD_KLOGCTL)}]},CONFIG_FEATURE_KLOGD_KLOGCTL)},{(CFGNode {_nID = 424511992, _fname = "klogd_close", text = "klogd_close", ast = CFGFuncRoot "", _preds = [{(1459884741,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)},{(136842500,(!CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL)), (0,!(!CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL))},{(-172047713,(CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL)), (0,!(CONFIG_FEATURE_CLEAN_UP /\ !CONFIG_FEATURE_KLOGD_KLOGCTL))},{(60159736,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}], __succs = [{(-1723390975,!CONFIG_FEATURE_KLOGD_KLOGCTL), (0,CONFIG_FEATURE_KLOGD_KLOGCTL)}]},!CONFIG_FEATURE_KLOGD_KLOGCTL)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+benchmarking inputs/busybox/cfgs-1_18_5/klogd.cfg,194,3,8,6,/originalFileDeep
+time                 28.01 ms   (25.74 ms .. 30.53 ms)
+                     0.978 R²   (0.959 R² .. 0.992 R²)
+mean                 31.00 ms   (29.78 ms .. 32.54 ms)
+std dev              2.791 ms   (1.857 ms .. 3.779 ms)
+variance introduced by outliers: 34% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/klogd.cfg,194,3,8,6,/originalFileDeepMemo
+time                 30.61 ms   (29.02 ms .. 33.60 ms)
+                     0.961 R²   (0.907 R² .. 0.996 R²)
+mean                 30.58 ms   (29.38 ms .. 32.55 ms)
+std dev              3.224 ms   (1.991 ms .. 4.962 ms)
+variance introduced by outliers: 45% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/klogd.cfg
+Node#:           194
+Features:        ["CONFIG_FEATURE_CLEAN_UP","CONFIG_NOMMU","CONFIG_FEATURE_KLOGD_KLOGCTL"]
+Feature#:        3
+Config#:         8
+Present config#: 6
+benchmarking inputs/busybox/cfgs-1_19_0/klogd.cfg,194,3,8,6,/evolvedFileDeep
+time                 31.57 ms   (29.44 ms .. 35.36 ms)
+                     0.964 R²   (0.926 R² .. 0.994 R²)
+mean                 29.91 ms   (28.89 ms .. 31.62 ms)
+std dev              2.866 ms   (1.552 ms .. 4.017 ms)
+variance introduced by outliers: 39% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/klogd.cfg,194,3,8,6,/evolvedFileDeepMemo
+time                 303.3 μs   (298.1 μs .. 314.0 μs)
+                     0.992 R²   (0.985 R² .. 0.997 R²)
+mean                 310.7 μs   (306.0 μs .. 318.0 μs)
+std dev              20.07 μs   (14.28 μs .. 29.99 μs)
+variance introduced by outliers: 59% (severely inflated)
+
+"Done."

@@ -1,0 +1,61 @@
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+"Without memoization:"
+[{(CFGNode {_nID = -1319370565, _fname = "warn2_cannot", text = "warn2_cannot", ast = CFGFuncRoot "", _preds = [{(-598332206,TT)},{(1479322263,TT)},{(39693357,TT)},{(614326939,TT)}], __succs = [{(-598332206,TT)}]},TT)},{(CFGNode {_nID = -152810499, _fname = "fatal2_cannot", text = "fatal2_cannot", ast = CFGFuncRoot "", _preds = [{(-2107366440,TT)},{(1687165567,TT)}], __succs = [{(-2107366440,TT)}]},TT)},{(CFGNode {_nID = 511212792, _fname = "runsvdir_main", text = "runsvdir_main", ast = CFGFuncRoot "", _preds = [], __succs = [{(-188461358,TT)}]},TT)},{(CFGNode {_nID = 1124394470, _fname = "warn3x", text = "warn3x", ast = CFGFuncRoot "", _preds = [{(1335145785,TT)},{(-598332206,TT)},{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}], __succs = [{(1335145785,TT)}]},TT)},{(CFGNode {_nID = 1980802429, _fname = "warnx", text = "warnx", ast = CFGFuncRoot "", _preds = [{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}], __succs = [{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}]},CONFIG_FEATURE_RUNSVDIR_LOG)}]
+"With memoization:"
+[{(CFGNode {_nID = -1319370565, _fname = "warn2_cannot", text = "warn2_cannot", ast = CFGFuncRoot "", _preds = [{(-598332206,TT)},{(1479322263,TT)},{(39693357,TT)},{(614326939,TT)}], __succs = [{(-598332206,TT)}]},TT)},{(CFGNode {_nID = -152810499, _fname = "fatal2_cannot", text = "fatal2_cannot", ast = CFGFuncRoot "", _preds = [{(-2107366440,TT)},{(1687165567,TT)}], __succs = [{(-2107366440,TT)}]},TT)},{(CFGNode {_nID = 511212792, _fname = "runsvdir_main", text = "runsvdir_main", ast = CFGFuncRoot "", _preds = [], __succs = [{(-188461358,TT)}]},TT)},{(CFGNode {_nID = 1124394470, _fname = "warn3x", text = "warn3x", ast = CFGFuncRoot "", _preds = [{(1335145785,TT)},{(-598332206,TT)},{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}], __succs = [{(1335145785,TT)}]},TT)},{(CFGNode {_nID = 1980802429, _fname = "warnx", text = "warnx", ast = CFGFuncRoot "", _preds = [{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}], __succs = [{(10078518,CONFIG_FEATURE_RUNSVDIR_LOG), (0,!CONFIG_FEATURE_RUNSVDIR_LOG)}]},CONFIG_FEATURE_RUNSVDIR_LOG)}]
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_18_5/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_18_5/runsvdir.cfg,185,1,2,2,/originalFileDeep
+time                 999.3 μs   (991.2 μs .. 1.008 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 1.005 ms   (1.000 ms .. 1.013 ms)
+std dev              21.06 μs   (16.13 μs .. 30.72 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_18_5/runsvdir.cfg,185,1,2,2,/originalFileDeepMemo
+time                 1.020 ms   (998.5 μs .. 1.045 ms)
+                     0.995 R²   (0.991 R² .. 0.998 R²)
+mean                 1.004 ms   (991.8 μs .. 1.021 ms)
+std dev              49.73 μs   (36.27 μs .. 67.40 μs)
+variance introduced by outliers: 39% (moderately inflated)
+
+Analysis:        Return
+File:            inputs/busybox/cfgs-1_19_0/runsvdir.cfg
+Node#:           185
+Features:        ["CONFIG_FEATURE_RUNSVDIR_LOG"]
+Feature#:        1
+Config#:         2
+Present config#: 2
+benchmarking inputs/busybox/cfgs-1_19_0/runsvdir.cfg,185,1,2,2,/evolvedFileDeep
+time                 1.019 ms   (1.004 ms .. 1.032 ms)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 1.016 ms   (1.008 ms .. 1.029 ms)
+std dev              34.22 μs   (25.29 μs .. 53.97 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+benchmarking inputs/busybox/cfgs-1_19_0/runsvdir.cfg,185,1,2,2,/evolvedFileDeepMemo
+time                 193.0 μs   (190.1 μs .. 196.4 μs)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 194.1 μs   (192.3 μs .. 196.8 μs)
+std dev              7.181 μs   (5.387 μs .. 10.31 μs)
+variance introduced by outliers: 34% (moderately inflated)
+
+"Done."
