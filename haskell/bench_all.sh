@@ -14,7 +14,7 @@ fi
 
 mkdir -p results
 
-for analysis in CASE_TERMINATION RETURN_AVG GOTOS DANGLING_SWITCH CALL_DENSITY; do
+for analysis in RETURN CASE_TERMINATION RETURN_AVG GOTOS DANGLING_SWITCH CALL_DENSITY; do
     mkdir -p results/$analysis
     stack clean
     stack build --ghc-options -D$analysis
