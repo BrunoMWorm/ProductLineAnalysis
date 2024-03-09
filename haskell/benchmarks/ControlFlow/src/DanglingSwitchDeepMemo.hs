@@ -14,7 +14,7 @@ import VCFG
 
 --import qualified Data.MultiMap as M
 
-type MemoryConc = KeyValueArray String (Var Bool)
+type MemoryConc = KeyValueArray (String, Int) (Var Bool)
 type StateConc = State MemoryConc
 
 find :: Var Int -> [Var Int] -> Var Bool
@@ -98,7 +98,7 @@ danglingSwitch cfg n@(Var ns) =
   let fname = show $ _fname (fst (head ns))
       presenceCond = (snd (head ns))
    in retrieveOrRun
-        fname
+        (fname, _nID (fst (head ns)))
         ( \_ ->
             let ss = filter' (not' ^. isCase) (_succs' cfg n)
                 follow = followSuccessors cfg [] ss

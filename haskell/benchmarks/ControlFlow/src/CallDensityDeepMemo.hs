@@ -12,7 +12,7 @@ import Memoization.Core.State
 import SPL
 import VCFG
 
-type MemoryConc = KeyValueArray String (Var Integer)
+type MemoryConc = KeyValueArray (String, Int) (Var Integer)
 type StateConc = State MemoryConc
 
 find :: Var Int -> [Var Int] -> Var Bool
@@ -65,7 +65,7 @@ callDensity cfg n@(Var ns) =
   let fname = show $ _fname (fst (head ns))
       presenceCond = (snd (head ns))
    in retrieveOrRun
-        fname
+        (fname, _nID (fst (head ns)))
         ( \_ ->
             let follow = followSuccessors cfg [_nID' n] n
                 restrictedFollow = restrict presenceCond follow
