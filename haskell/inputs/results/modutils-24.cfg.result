@@ -1,3 +1,9 @@
-obj_insert_section_load_order
+arch_create_got
+arch_apply_relocation
+next_arg
 new_process_module_arguments
+arch_xsect_init
 obj_find_symbol
+obj_add_symbol
+obj_insert_section_load_order
+obj_find_section

@@ -1,5 +1,5 @@
-tftp_progress_done
-tftp_progress_update
 tftp_progress_init
-tftp_protocol
+tftp_progress_update
+tftp_progress_done
 tftpd_main
+tftp_protocol

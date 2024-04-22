@@ -1,4 +1,4 @@
-append_file_list_to_list
+writeTarHeader
 vfork_compressor
 writeFileToTarball
-writeTarHeader
+append_file_list_to_list

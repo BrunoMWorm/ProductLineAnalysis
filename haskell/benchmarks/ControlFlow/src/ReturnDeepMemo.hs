@@ -82,8 +82,7 @@ hasReturn cfg n@(Var ns) =
         (fname, _nID (fst (head ns)))
         ( \_ ->
             let follow = followSuccessors cfg [_nID' n] n
-                restrictedFollow = restrict presenceCond follow
-             in assert (length ns == 1) $ return restrictedFollow
+             in assert (length ns == 1) $ return follow
         )
 
 analyze :: Var CFG -> StateConc [Var CFGNode]

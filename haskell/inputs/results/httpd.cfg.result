@@ -1,2 +1,2 @@
-send_headers_and_exit
 httpd_main
+send_headers_and_exit

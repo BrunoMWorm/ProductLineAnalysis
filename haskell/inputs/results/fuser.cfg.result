@@ -1,10 +1,10 @@
+scan_link
 scan_proc_pids
+add_inode
 scan_dir_links
 fuser_main
-add_inode
-add_pid
-scan_pid_maps
 scan_proc_net
-scan_recursive
+add_pid
 scan_proc_net_or_maps
-scan_link
+scan_recursive
+scan_pid_maps

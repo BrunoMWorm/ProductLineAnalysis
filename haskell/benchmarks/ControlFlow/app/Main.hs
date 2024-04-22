@@ -4,7 +4,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 
 -- #define CASE_TERMINATION
-#define RETURN
+-- #define RETURN
 -- #define RETURN_AVG
 -- #define GOTOS
 -- #define DANGLING_SWITCH
@@ -14,10 +14,12 @@ module Main where
 
 import CFG (CFG (CFG), CFGNode (CFGNode))
 import CFGParser (readCFG)
+import qualified Control.Arrow as Data.Bifunctor
 import Control.DeepSeq (NFData)
 import Criterion (bench, bgroup, env, nf)
 import Criterion.Main
 import Criterion.Main.Options
+import Data.List (sortOn)
 import GHC.Generics (Generic)
 import GHC.IO.Handle (hClose)
 import GHC.IO.IOMode (IOMode (ReadMode))
@@ -26,7 +28,8 @@ import Memoization.Core.Memory
 import Memoization.Core.State
 import Options.Applicative
 import PresenceCondition (getAllConfigs)
-import SPL (Var (Var), getFeatures, liftV, ttPC, (^|))
+import SPL (Var (Var), compact, getFeatures, liftV, ttPC, (^|), groupVals)
+import Serialization.StoreBDD (loadMemory, storeMemory)
 import System.IO (hGetContents, openFile)
 import System.Timeout (timeout)
 import qualified VCFG as V
@@ -66,15 +69,6 @@ import qualified CallDensityDeep as Deep
 import qualified CallDensityDeepMemo as DeepMemo
 analysis = "Call Density"
 #endif
-
-originalFilesDir :: String
-originalFilesDir = "inputs/busybox/cfgs-1_18_5"
-
-evolvedFilesDir :: String
-evolvedFilesDir = "inputs/busybox/cfgs-1_19_0"
-
-filelistDir :: String
-filelistDir = "inputs/busybox/filelist"
 
 changedFunctionNamesDir :: String
 changedFunctionNamesDir = "inputs/results"
@@ -126,13 +120,13 @@ deep = Deep.analyze
 
 deepMemoSt st c = runState (DeepMemo.analyze c) st
 
-
 deepMemoMem st c = execState (DeepMemo.analyze c) st
 
 deepMemo st c = evalState (DeepMemo.analyze c) st
 
 data CustomArgs = CustomArgs
   { filename :: String,
+    fileversion :: String,
     others :: Mode
   }
 
@@ -145,53 +139,54 @@ customParser =
           <> metavar "STR"
           <> help "Input CFG to process."
       )
+    <*> strOption
+      ( long "fileversion"
+          <> value "version of the input file"
+          <> metavar "STR"
+          <> help "Version of the file to process."
+      )
     <*> parseWith defaultConfig
+
+-- Auxiliary function for removing the 'quotes' and 'slash' characters from the string stored in memory
+-- representing the function name
+extractFnName :: [Char] -> [Char]
+extractFnName = filter (not . (`elem` "\\\'\""))
+
+
+compactOnEq :: Eq t => Var t -> Var t
+compactOnEq vri = let (Var vc) = compact vri in compact (Var (groupVals vc (==)))
 
 main :: IO ()
 main = do
   cliParams <- execParser $ describeWith customParser
-  let inputFile = filename cliParams
-  let originalCFG = originalFilesDir <> "/" <> inputFile
-  let evolvedCFG = evolvedFilesDir <> "/" <> inputFile
+  let fileName = filename cliParams
+  let fileVersion = fileversion cliParams
+  let inputsDir = "inputs/busybox/cfgs-" <> fileVersion
+  let inputFile = inputsDir <> "/" <> fileName
 
-  -- First, we need to obtain the initial memory. As we already computed the
-  -- benchmarks on the original files, we already know the cost of computing the computation inside
-  -- the ST monad with an empty initial state.
-  originalEnv <- setupEnv originalCFG
-  modifiedFunctions <- readfileContents (changedFunctionNamesDir <> "/" <> inputFile <> ".result")
-  let initialMemory = deepMemoMem [] (deepCFG originalEnv)
-      validMemory = filter (\(k, v) -> k `notElem` modifiedFunctions) initialMemory
+  env <- setupEnv inputFile
 
-  -- Now, before the benchmarks, we check if the results are the same
-  -- Thirty minutes per analysis
-  evolvedEnv <- setupEnv evolvedCFG
-  print "Without memoization:"
-  let withoutMemoization = deep (deepCFG evolvedEnv)
-  print $ withoutMemoization
-  let withMemoization = deepMemo validMemory (deepCFG evolvedEnv)
-  print "With memoization:"
-  print withMemoization
+  let memoryDir = fileName <> ".memo"
 
-  let timePerFile = 1000 * 1000 * 60 * 30
-  timeout timePerFile $
-    runMode
-      (others cliParams)
-      [ env (setupEnv originalCFG) $ \env ->
-          bgroup
-            (hdr env)
-            [ bench "originalFileDeep" $ nf deep (deepCFG env),
-              bench "originalFileDeepMemo" $ nf (deepMemo []) (deepCFG env)
-            ]
-      ]
+  let reconstructedMemoryIO :: IO DeepMemo.MemoryConc
+      reconstructedMemoryIO = loadMemory memoryDir
+  reconstructedMemory <- reconstructedMemoryIO
 
-  timeout timePerFile $
-    runMode
-      (others cliParams)
-      [ env (setupEnv evolvedCFG) $ \env ->
-          bgroup
-            (hdr env)
-            [ bench "evolvedFileDeep" $ nf deep (deepCFG env),
-              bench "evolvedFileDeepMemo" $ nf (deepMemo validMemory) (deepCFG env)
-            ]
-      ]
-  print "Done."
+  let changedFunctionNamesDir = "inputs/results"
+  modifiedFunctions <- readfileContents (changedFunctionNamesDir <> "/" <> fileName <> ".result")
+  let validMemory = filter (\(k, v) -> extractFnName (fst k) `notElem` modifiedFunctions) reconstructedMemory
+
+  let origRes = deep (deepCFG env)
+  print "Original:"
+  print origRes
+
+  let (deepRes, newMemory) = (deepResRaw, map (Data.Bifunctor.second compactOnEq) memoryRaw)
+        where
+          (deepResRaw, memoryRaw) = deepMemoSt validMemory (deepCFG env)
+  print "Deep:"
+  print deepRes
+
+  print "Are equal?"
+  print (show origRes == show deepRes)
+
+  storeMemory memoryDir newMemory

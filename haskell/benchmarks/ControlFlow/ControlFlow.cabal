@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0fee6ebb6fb2bd2c48033f26ccf0e9d3e1da0072109974b382f457d6fe273495
+-- hash: b4b42d3482ba50b7bc45810fcc7efcd4cf1bd42642bb0c1f5896c9c576d24ad7
 
 name:           ControlFlow
 version:        0.1.0.0
@@ -50,18 +50,21 @@ library
       ReturnAvgDeepMemo
       ReturnDeep
       ReturnDeepMemo
+      Serialization.StoreBDD
       VCFG
   other-modules:
       Paths_ControlFlow
   hs-source-dirs:
       src
-  ghc-options: -O2
+  ghc-options: -O2 -fno-ignore-asserts
   build-depends:
       SPL
     , Unique
     , base >=4.7 && <5
     , containers
+    , cudd
     , deepseq
+    , directory
     , graphviz
     , hashtables
     , language-c
@@ -72,14 +75,11 @@ library
 executable ControlFlow-exe
   main-is: Main.hs
   other-modules:
-      Main2
-      MainNoMemo
-      MainOnly1
-      MainValid
+      Main3
       Paths_ControlFlow
   hs-source-dirs:
       app
-  ghc-options: -O2 -rtsopts
+  ghc-options: -O2 -rtsopts -fno-ignore-asserts
   build-depends:
       ControlFlow
     , SPL
@@ -87,7 +87,9 @@ executable ControlFlow-exe
     , containers
     , criterion
     , criterion-measurement
+    , cudd
     , deepseq
+    , directory
     , graphviz
     , hashtables
     , language-c
@@ -109,6 +111,8 @@ test-suite ControlFlow-test
     , SPL
     , base >=4.7 && <5
     , containers
+    , cudd
+    , directory
     , graphviz
     , hashtables
     , language-c

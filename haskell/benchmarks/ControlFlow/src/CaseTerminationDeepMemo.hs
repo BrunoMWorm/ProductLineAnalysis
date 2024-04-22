@@ -133,8 +133,7 @@ terminatedCase cfg n@(Var ns) =
         ( \_ ->
             let ss = filter' (not' ^. isCase) (_succs' cfg n)
                 follow = followSuccessors cfg [] ss
-                restrictedFollow = restrict presenceCond follow
-             in assert (length ns == 1) $ return restrictedFollow
+             in assert (length ns == 1) $ return follow
         )
 
 -- let ss = filter' (not' ^. isCase) (_succs' cfg n) in followSuccessors cfg [] ss

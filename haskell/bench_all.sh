@@ -14,12 +14,20 @@ fi
 
 mkdir -p results
 
-for analysis in RETURN CASE_TERMINATION RETURN_AVG GOTOS DANGLING_SWITCH CALL_DENSITY; do
-    mkdir -p results/$analysis
+rm -f bdds/*
+rm -f values/*
+
+for analysis in RETURN_AVG CALL_DENSITY DANGLING_SWITCH CASE_TERMINATION RETURN; do
     stack clean
     stack build --ghc-options -D$analysis
-    while IFS= read -r file || [ -n "$file" ]; do
-        timeout 15m stack run -- --filename="$file" --csv results/$analysis/stats.csv &> results/$analysis/$file.result ;
-    done < "$fileList"
-done 
+    mkdir -p results/$analysis
+    for version in 1_18_5 1_19_0; do 
+        mkdir -p results/$analysis/$version
+        while IFS= read -r file || [ -n "$file" ]; do
+            timeout 15m stack run -- --filename="$file" --fileversion="$version" --csv results/$analysis/stats.csv &> results/$analysis/$version/$file.result ;
+        done < "$fileList"
+    done
+    rm -f bdds/*
+    rm -f values/*
+done
 

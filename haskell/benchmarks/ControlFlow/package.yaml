@@ -28,11 +28,14 @@ dependencies:
 - SPL
 - hashtables
 - more-containers
+- cudd
+- directory
 
 library:
   source-dirs: src
   ghc-options:
     - -O2
+    - -fno-ignore-asserts
   dependencies:
   - deepseq
   - Unique
@@ -44,8 +47,7 @@ executables:
     ghc-options:
     - -O2
     - -rtsopts
-
-#- -with-rtsopts=-N
+    - -fno-ignore-asserts
     dependencies:
     - ControlFlow
     - criterion-measurement
