@@ -4,7 +4,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 
 -- #define CASE_TERMINATION
--- #define RETURN
+#define RETURN
 -- #define RETURN_AVG
 -- #define GOTOS
 -- #define DANGLING_SWITCH
@@ -28,7 +28,7 @@ import Memoization.Core.Memory
 import Memoization.Core.State
 import Options.Applicative
 import PresenceCondition (getAllConfigs)
-import SPL (Var (Var), compact, getFeatures, liftV, ttPC, (^|), groupVals)
+import SPL (Var (Var), compact, getFeatures, groupVals, liftV, ttPC, (^|))
 import Serialization.StoreBDD (loadMemory, storeMemory)
 import System.IO (hGetContents, openFile)
 import System.Timeout (timeout)
@@ -49,6 +49,7 @@ analysis = "DanglingSwitch"
 #ifdef RETURN
 import qualified ReturnDeep as Deep
 import qualified ReturnDeepMemo as DeepMemo
+import System.Directory (doesFileExist)
 analysis = "Return"
 #endif
 
@@ -75,9 +76,13 @@ changedFunctionNamesDir = "inputs/results"
 
 readfileContents :: FilePath -> IO [String]
 readfileContents filePath = do
-  handle <- openFile filePath ReadMode
-  contents <- hGetContents handle
-  return (lines contents)
+  fileExists <- doesFileExist filePath
+  if fileExists
+    then do
+      handle <- openFile filePath ReadMode
+      contents <- hGetContents handle
+      return (lines contents)
+    else return []
 
 data Env = Env
   { deepCFG :: Var V.CFG,
@@ -127,6 +132,7 @@ deepMemo st c = evalState (DeepMemo.analyze c) st
 data CustomArgs = CustomArgs
   { filename :: String,
     fileversion :: String,
+    previousversion :: String,
     others :: Mode
   }
 
@@ -139,19 +145,24 @@ customParser =
           <> metavar "STR"
           <> help "Input CFG to process."
       )
-    <*> strOption
-      ( long "fileversion"
-          <> value "version of the input file"
-          <> metavar "STR"
-          <> help "Version of the file to process."
-      )
-    <*> parseWith defaultConfig
+      <*> strOption
+        ( long "fileversion"
+            <> value "version of the input file"
+            <> metavar "STR"
+            <> help "Version of the file to process."
+        )
+      <*> strOption
+        ( long "previousversion"
+            <> value "previous version of the input file for reusing the values"
+            <> metavar "STR"
+            <> help "Previous version of the file analysed."
+        )
+      <*> parseWith defaultConfig
 
 -- Auxiliary function for removing the 'quotes' and 'slash' characters from the string stored in memory
 -- representing the function name
 extractFnName :: [Char] -> [Char]
 extractFnName = filter (not . (`elem` "\\\'\""))
-
 
 compactOnEq :: Eq t => Var t -> Var t
 compactOnEq vri = let (Var vc) = compact vri in compact (Var (groupVals vc (==)))
@@ -161,32 +172,68 @@ main = do
   cliParams <- execParser $ describeWith customParser
   let fileName = filename cliParams
   let fileVersion = fileversion cliParams
-  let inputsDir = "inputs/busybox/cfgs-" <> fileVersion
-  let inputFile = inputsDir <> "/" <> fileName
+  let previousVersion = previousversion cliParams
 
-  env <- setupEnv inputFile
-
-  let memoryDir = fileName <> ".memo"
+  let cfgInputFile = "artifacts/" <> fileVersion <> "/cfgs/original/" <> fileName
+  let memoizationDir = "artifacts/" <> fileVersion <> "/memoization/"
+  let memoizationValuesFileName = fileName <> ".memo"
+  let previousMemoizationDir = "artifacts/" <> previousVersion <> "/memoization/"
 
   let reconstructedMemoryIO :: IO DeepMemo.MemoryConc
-      reconstructedMemoryIO = loadMemory memoryDir
+      reconstructedMemoryIO = loadMemory previousMemoizationDir memoizationValuesFileName
   reconstructedMemory <- reconstructedMemoryIO
+  print "Reconstructed Memory:"
+  print reconstructedMemory
 
-  let changedFunctionNamesDir = "inputs/results"
-  modifiedFunctions <- readfileContents (changedFunctionNamesDir <> "/" <> fileName <> ".result")
+  let changedFunctionNamesDir = "artifacts/" <> fileVersion <> "/changed_functions/"
+  modifiedFunctions <- readfileContents (changedFunctionNamesDir <> fileName)
   let validMemory = filter (\(k, v) -> extractFnName (fst k) `notElem` modifiedFunctions) reconstructedMemory
+  print "Valid Memory:"
+  print validMemory
 
-  let origRes = deep (deepCFG env)
-  print "Original:"
+  correctnessRunEnv <- setupEnv cfgInputFile
+  let origRes = deep (deepCFG correctnessRunEnv)
+  print "Original Analysis:"
   print origRes
 
-  let (deepRes, newMemory) = (deepResRaw, map (Data.Bifunctor.second compactOnEq) memoryRaw)
+  let (memoRes, newMemory) = (memoResRaw, map (Data.Bifunctor.second compactOnEq) memoryRaw)
         where
-          (deepResRaw, memoryRaw) = deepMemoSt validMemory (deepCFG env)
-  print "Deep:"
-  print deepRes
+          (memoResRaw, memoryRaw) = deepMemoSt validMemory (deepCFG correctnessRunEnv)
+  print "Deep Analysis:"
+  print memoRes
+  storeMemory memoizationDir memoizationValuesFileName newMemory
 
   print "Are equal?"
-  print (show origRes == show deepRes)
+  print (show origRes == show memoRes)
 
-  storeMemory memoryDir newMemory
+  runMode
+    (others cliParams)
+    [ env (setupEnv cfgInputFile) $ \env ->
+        bgroup
+          (hdr env)
+          [ bench "deep" $ nf deep (deepCFG env),
+            bench "deepMemo" $ nf (deepMemo validMemory) (deepCFG env)
+          ]
+    ]
+
+  runMode
+    (others cliParams)
+    [ env (setupEnv cfgInputFile) $ \env ->
+        let loadMemoryIO :: String -> IO DeepMemo.MemoryConc
+            loadMemoryIO = loadMemory previousMemoizationDir
+         in bgroup
+              (hdr env)
+              [ bench "loadMemory" $ nfIO (loadMemoryIO memoizationValuesFileName)
+              ]
+    ]
+
+  runMode
+    (others cliParams)
+    [ env (setupEnv cfgInputFile) $ \env ->
+        let storeMemoryIO :: DeepMemo.MemoryConc -> IO ()
+            storeMemoryIO = storeMemory memoizationDir memoizationValuesFileName
+         in bgroup
+              (hdr env)
+              [ bench "storeMemory" $ nfIO (storeMemoryIO newMemory)
+              ]
+    ]
