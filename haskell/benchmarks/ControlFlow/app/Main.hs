@@ -4,11 +4,11 @@
 {-# LANGUAGE DeriveGeneric #-}
 
 -- #define CASE_TERMINATION
-#define RETURN
+-- #define RETURN
 -- #define RETURN_AVG
 -- #define GOTOS
 -- #define DANGLING_SWITCH
--- #define CALL_DENSITY
+#define CALL_DENSITY
 
 module Main where
 
@@ -32,6 +32,7 @@ import SPL (Var (Var), compact, getFeatures, groupVals, liftV, ttPC, (^|))
 import Serialization.StoreBDD (loadMemory, storeMemory)
 import System.IO (hGetContents, openFile)
 import System.Timeout (timeout)
+import System.Directory (doesFileExist)
 import qualified VCFG as V
 
 #ifdef CASE_TERMINATION
@@ -49,26 +50,25 @@ analysis = "DanglingSwitch"
 #ifdef RETURN
 import qualified ReturnDeep as Deep
 import qualified ReturnDeepMemo as DeepMemo
-import System.Directory (doesFileExist)
 analysis = "Return"
 #endif
 
 #ifdef RETURN_AVG
 import qualified ReturnAvgDeep as Deep
 import qualified ReturnAvgDeepMemo as DeepMemo
-analysis = "Return Average"
+analysis = "ReturnAverage"
 #endif
 
 #ifdef GOTOS
 import qualified GotosDeep as Deep
 import qualified GotosDeepMemo as DeepMemo
-analysis = "Goto Density"
+analysis = "GotoDensity"
 #endif
 
 #ifdef CALL_DENSITY
 import qualified CallDensityDeep as Deep
 import qualified CallDensityDeepMemo as DeepMemo
-analysis = "Call Density"
+analysis = "CallDensity"
 #endif
 
 changedFunctionNamesDir :: String
@@ -175,9 +175,11 @@ main = do
   let previousVersion = previousversion cliParams
 
   let cfgInputFile = "artifacts/" <> fileVersion <> "/cfgs/original/" <> fileName
-  let memoizationDir = "artifacts/" <> fileVersion <> "/memoization/"
+  let memoizationDir = "artifacts/" <> fileVersion <> "/memoization/" <> fileName <> "/" <> analysis <> "/"
   let memoizationValuesFileName = fileName <> ".memo"
-  let previousMemoizationDir = "artifacts/" <> previousVersion <> "/memoization/"
+  let previousMemoizationDir = "artifacts/" <> previousVersion <> "/memoization/" <> fileName <> "/" <> analysis <> "/"
+
+  correctnessRunEnv <- setupEnv cfgInputFile
 
   let reconstructedMemoryIO :: IO DeepMemo.MemoryConc
       reconstructedMemoryIO = loadMemory previousMemoizationDir memoizationValuesFileName
@@ -191,7 +193,6 @@ main = do
   print "Valid Memory:"
   print validMemory
 
-  correctnessRunEnv <- setupEnv cfgInputFile
   let origRes = deep (deepCFG correctnessRunEnv)
   print "Original Analysis:"
   print origRes
@@ -209,31 +210,16 @@ main = do
   runMode
     (others cliParams)
     [ env (setupEnv cfgInputFile) $ \env ->
-        bgroup
-          (hdr env)
-          [ bench "deep" $ nf deep (deepCFG env),
-            bench "deepMemo" $ nf (deepMemo validMemory) (deepCFG env)
-          ]
-    ]
-
-  runMode
-    (others cliParams)
-    [ env (setupEnv cfgInputFile) $ \env ->
         let loadMemoryIO :: String -> IO DeepMemo.MemoryConc
             loadMemoryIO = loadMemory previousMemoizationDir
-         in bgroup
-              (hdr env)
-              [ bench "loadMemory" $ nfIO (loadMemoryIO memoizationValuesFileName)
-              ]
-    ]
-
-  runMode
-    (others cliParams)
-    [ env (setupEnv cfgInputFile) $ \env ->
-        let storeMemoryIO :: DeepMemo.MemoryConc -> IO ()
+            storeMemoryIO :: DeepMemo.MemoryConc -> IO ()
             storeMemoryIO = storeMemory memoizationDir memoizationValuesFileName
          in bgroup
-              (hdr env)
-              [ bench "storeMemory" $ nfIO (storeMemoryIO newMemory)
+              (fileVersion <> "-" <> fileName)
+              [ 
+                bench "deep" $ nf deep (deepCFG env),
+                bench "deepMemo" $ nf (deepMemo validMemory) (deepCFG env),
+                bench "loadMemory" $ nfIO (loadMemoryIO memoizationValuesFileName),
+                bench "storeMemory" $ nfIO (storeMemoryIO newMemory)
               ]
     ]
