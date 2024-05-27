@@ -2,6 +2,7 @@
 -- Returning the average number of goto statements per label
 module GotosDeepMemo where
 
+import Control.Exception
 import Data.Maybe
 import Data.Ratio
 import Debug.Trace
@@ -10,9 +11,9 @@ import Memoization.Core.Memory
 import Memoization.Core.State
 import SPL
 import VCFG
-import Control.Exception
 
-type MemoryConc = KeyValueArray String (Var Integer)
+type MemoryConc = KeyValueArray Bool (Var Rational)
+
 type StateConc = State MemoryConc
 
 isGoto :: Var CFGNode -> Var Bool
@@ -43,7 +44,6 @@ isLabel n =
         )
         [\__cntxt__ -> (uncurry0 (case0 __cntxt__)) . (liftV split0), \__cntxt__ -> (uncurry0 (case1 __cntxt__)) . (liftV split1)]
 
-
 -- A granularidade aqui só pode ser no nível CFG...
 analyze :: Var CFG -> StateConc (Var Rational)
 analyze cfg =
@@ -52,4 +52,4 @@ analyze cfg =
       _gs = filter' isGoto _ns
       labelCount = length' _ls
       gotoCount = length' _gs
-   in return $ liftedCond (((==) ^| ttPC) <*> (labelCount) <*> ((0 ^| ttPC))) (\__cntxt__ -> (0 ^| __cntxt__)) (\__cntxt__ -> ((%) ^| __cntxt__) <*> (((toInteger ^| __cntxt__) <*> (gotoCount /^ __cntxt__))) <*> (((toInteger ^| __cntxt__) <*> (labelCount /^ __cntxt__))))
+   in retrieveOrRun True (\_ -> return $ liftedCond (((==) ^| ttPC) <*> (labelCount) <*> ((0 ^| ttPC))) (\__cntxt__ -> (0 ^| __cntxt__)) (\__cntxt__ -> ((%) ^| __cntxt__) <*> (((toInteger ^| __cntxt__) <*> (gotoCount /^ __cntxt__))) <*> (((toInteger ^| __cntxt__) <*> (labelCount /^ __cntxt__)))))

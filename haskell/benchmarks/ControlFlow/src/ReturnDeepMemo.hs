@@ -4,17 +4,18 @@
 module ReturnDeepMemo where
 
 import Control.Exception
+import Data.Hashable
 import Data.Maybe
 import Debug.Trace
+import GHC.StableName (hashStableName, makeStableName)
 import Language.C.Syntax.AST
 import Memoization.Core.Memory
 import Memoization.Core.State
 import SPL
 import VCFG
-import Data.Hashable
-import GHC.StableName (hashStableName, makeStableName)
 
 type MemoryConc = KeyValueArray (String, Int) (Var Bool)
+
 type StateConc = State MemoryConc
 
 find :: Var Int -> [Var Int] -> Var Bool
@@ -84,7 +85,7 @@ hasReturn cfg n@(Var ns) =
         (fname, hash (show presenceCond))
         ( \_ ->
             let follow = followSuccessors cfg [_nID' n] n
-             in assert (length ns == 1) $ return follow
+             in return follow
         )
 
 analyze :: Var CFG -> StateConc [Var CFGNode]

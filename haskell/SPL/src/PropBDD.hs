@@ -10,7 +10,7 @@ import Cudd.Cudd
 import Data.Hashable
 import qualified Data.HashTable.IO as H
 import Control.Monad.ST
-import qualified Data.List as L 
+import qualified Data.List as L
 import Debug.Trace
 import Data.STRef
 import Control.Monad
@@ -53,25 +53,22 @@ instance Show Prop where
 
 type Universe = [Prop]
 
-htSize :: (Eq k, Hashable k) => HashTable k v -> IO Int 
+htSize :: (Eq k, Hashable k) => HashTable k v -> IO Int
 htSize h = do
-    xs <- H.toList h 
-    return $ length xs 
-
-var2index :: HashTable String Int
-bdd2string :: HashTable DDNode String
+    xs <- H.toList h
+    return $ length xs
 
 getVars :: Prop -> IO [(String, Int)]
-getVars _ = do 
+getVars _ = do
     H.toList $! var2index
 
 lookupVar :: String -> Int
 lookupVar v = unsafePerformIO $ do
     i <- H.lookup var2index v
     case i of
-        Nothing -> do 
+        Nothing -> do
             i' <- htSize var2index
-            !d0 <- H.insert var2index v i' 
+            !d0 <- H.insert var2index v i'
             return $ i'
         Just i' -> return i'
 
@@ -92,8 +89,15 @@ addBDD b s = unsafePerformIO $ do
         Nothing -> H.insert bdd2string b s >> return s
         Just x' -> return x'
 
+manager :: DDManager
 manager = cuddInit
+
+{-# NOINLINE var2index #-}
+var2index :: HashTable String Int
 var2index = unsafePerformIO H.new
+
+{-# NOINLINE bdd2string #-}
+bdd2string :: HashTable DDNode String
 bdd2string = unsafePerformIO H.new
 
 {-# INLINE newBDD #-}
@@ -103,16 +107,16 @@ newBDD b s = unsafePerformIO $ do
     case x of
         Nothing -> H.insert bdd2string b s >> return (Prop b)
         Just x' -> return $ Prop b
-         
+
 mkBDDVar :: String -> Prop
-mkBDDVar name = 
-    let i = lookupVar name 
-        r = ithVar manager i 
+mkBDDVar name =
+    let i = lookupVar name
+        r = ithVar manager i
     in newBDD r name
 
 mkUniverse :: [String] -> Universe
-mkUniverse = map mkBDDVar  
-    
+mkUniverse = map mkBDDVar
+
 {-# INLINE tt #-}
 ttBDD = readOne manager
 tt = newBDD ttBDD "TT"
@@ -123,19 +127,19 @@ ff = newBDD ffBDD "FF"
 
 {-# INLINE andBDD #-}
 andBDD :: Prop -> Prop -> Prop
-andBDD p0@(Prop b0) p1@(Prop b1) = 
+andBDD p0@(Prop b0) p1@(Prop b1) =
     if      p0 == ff then ff
     else if p1 == ff then ff
     else if p0 == tt then p1
     else if p1 == tt then p0
-    else    let b = bAnd manager b0 b1 
+    else    let b = bAnd manager b0 b1
                 sb0 = lookupBDD' b0
                 sb1 = lookupBDD' b1
             in  newBDD b ("(" ++ sb0 ++ " /\\ " ++ sb1 ++ ")")
 
 {-# INLINE orBDD #-}
 orBDD :: Prop -> Prop -> Prop
-orBDD p0@(Prop b0) p1@(Prop b1) = 
+orBDD p0@(Prop b0) p1@(Prop b1) =
     if      p0 == tt then tt
     else if p1 == tt then tt
     else if p0 == ff then p1
@@ -153,13 +157,14 @@ notBDD p@(Prop b) =
     else    let b' = bNot manager b
             in newBDD b' ("!" ++ lookupBDD' b)
 
-neg :: Prop -> Prop 
-neg = notBDD 
+
+neg :: Prop -> Prop
+neg = notBDD
 
 disj :: [Prop] -> Prop
 disj = foldr orBDD ff
 
-impl p q = disj[notBDD p, q] 
+impl p q = disj[notBDD p, q]
 
 tautology :: Prop -> Bool
 tautology p = p == tt

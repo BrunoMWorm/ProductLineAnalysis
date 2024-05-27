@@ -3,9 +3,14 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 
-#define GOTOS
+-- #define CASE_TERMINATION
+#define RETURN
+-- #define RETURN_AVG
+-- #define GOTOS
+-- #define DANGLING_SWITCH
+-- #define CALL_DENSITY
 
-module Main where
+module MainAll where
 
 import CFG (CFG (CFG), CFGNode (CFGNode))
 import CFGParser (readCFG)
@@ -30,10 +35,40 @@ import System.Timeout (timeout)
 import System.Directory (doesFileExist)
 import qualified VCFG as V
 
+#ifdef CASE_TERMINATION
+import qualified CaseTerminationDeep as Deep
+import qualified CaseTerminationDeepMemo as DeepMemo
+analysis = "CaseTermination"
+#endif
+
+#ifdef DANGLING_SWITCH
+import qualified DanglingSwitchDeep as Deep
+import qualified DanglingSwitchDeepMemo as DeepMemo
+analysis = "DanglingSwitch"
+#endif
+
+#ifdef RETURN
+import qualified ReturnDeep as Deep
+import qualified ReturnDeepMemo as DeepMemo
+analysis = "Return"
+#endif
+
+#ifdef RETURN_AVG
+import qualified ReturnAvgDeep as Deep
+import qualified ReturnAvgDeepMemo as DeepMemo
+analysis = "ReturnAverage"
+#endif
+
 #ifdef GOTOS
 import qualified GotosDeep as Deep
 import qualified GotosDeepMemo as DeepMemo
 analysis = "GotoDensity"
+#endif
+
+#ifdef CALL_DENSITY
+import qualified CallDensityDeep as Deep
+import qualified CallDensityDeepMemo as DeepMemo
+analysis = "CallDensity"
 #endif
 
 changedFunctionNamesDir :: String
@@ -154,7 +189,7 @@ main = do
 
   let changedFunctionNamesDir = "artifacts/" <> fileVersion <> "/changed_functions/"
   modifiedFunctions <- readfileContents (changedFunctionNamesDir <> fileName)
-  let validMemory = if null modifiedFunctions then reconstructedMemory else [] 
+  let validMemory = filter (\(k, v) -> extractFnName (fst k) `notElem` modifiedFunctions) reconstructedMemory
   print "Valid Memory:"
   print validMemory
 

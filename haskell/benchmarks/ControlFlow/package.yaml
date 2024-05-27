@@ -27,6 +27,7 @@ dependencies:
 - text
 - SPL
 - hashtables
+- hashable
 - more-containers
 - cudd
 - directory
