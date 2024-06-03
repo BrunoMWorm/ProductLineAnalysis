@@ -80,7 +80,7 @@ returnAvg cfg n@(Var ns) =
   let fname = show $ _fname (fst (head ns))
       presenceCond = (snd (head ns))
    in retrieveOrRun
-        (fname, _nID (fst (head ns)))
+        (fname, hash (show presenceCond))
         ( \_ ->
             let follow = followSuccessors cfg [_nID' n] n
              in assert (length ns == 1) $ return follow

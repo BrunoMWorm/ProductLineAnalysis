@@ -98,7 +98,7 @@ danglingSwitch cfg n@(Var ns) =
   let fname = show $ _fname (fst (head ns))
       presenceCond = (snd (head ns))
    in retrieveOrRun
-        (fname, _nID (fst (head ns)))
+        (fname, hash (show presenceCond))
         ( \_ ->
             let ss = filter' (not' ^. isCase) (_succs' cfg n)
                 follow = followSuccessors cfg [] ss
