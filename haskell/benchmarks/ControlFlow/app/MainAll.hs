@@ -6,7 +6,6 @@
 -- #define CASE_TERMINATION
 #define RETURN
 -- #define RETURN_AVG
--- #define GOTOS
 -- #define DANGLING_SWITCH
 -- #define CALL_DENSITY
 

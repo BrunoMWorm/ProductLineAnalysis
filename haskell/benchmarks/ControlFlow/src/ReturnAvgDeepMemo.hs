@@ -11,6 +11,7 @@ import Memoization.Core.Memory
 import Memoization.Core.State
 import SPL
 import VCFG
+import Data.Hashable
 
 type MemoryConc = KeyValueArray (String, Int) (Var Integer)
 

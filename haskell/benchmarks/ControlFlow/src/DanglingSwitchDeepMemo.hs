@@ -11,6 +11,7 @@ import Memoization.Core.Memory
 import Memoization.Core.State
 import SPL
 import VCFG
+import Data.Hashable
 
 --import qualified Data.MultiMap as M
 
