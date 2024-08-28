@@ -82,8 +82,8 @@ terminatedCase :: Var CFG -> Var CFGNode -> Var Bool
 terminatedCase cfg n  = --trace "terminatedCase" $
     let ss = filter' (not' ^. isCase) (_succs' cfg n) in followSuccessors cfg [] ss
 
-analyze :: Var CFG -> [Var CFGNode]
+analyze :: Var CFG -> [Var Int]
 analyze cfg  = --trace "analyze" $
                let _ns = _nodes' cfg
-                   cases = filter' isCase _ns in filter' (not' ^. (terminatedCase cfg)) cases
+                   cases = filter' isCase _ns in map (fmap _nID) $ filter' (not' ^. (terminatedCase cfg)) cases
 

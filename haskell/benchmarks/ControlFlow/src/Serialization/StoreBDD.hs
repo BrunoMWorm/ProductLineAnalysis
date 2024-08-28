@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 
 {-# HLINT ignore "Use tuple-section" #-}
-module Serialization.StoreBDD (storeMemory, loadMemory) where
+module Serialization.StoreBDD (storeMemory, loadMemory, loadMemoryMaybe) where
 
 import Cudd.Cudd
 import Cudd.File
@@ -37,6 +37,16 @@ loadMemory path fileName = do
       valuesWithoutPCs <- readValuesWithoutPCs path fileName
       reconstructMemoryWithPCs path valuesWithoutPCs
     else return []
+
+loadMemoryMaybe :: (Read k, Ord k, Show k, Read v) => Path -> FileName -> IO (Maybe [(k, Var v)])
+loadMemoryMaybe path fileName = do
+  fileExists <- doesFileExist (valuesDirectory path <> fileName)
+  if fileExists
+    then do
+      valuesWithoutPCs <- readValuesWithoutPCs path fileName
+      reconstructed <- reconstructMemoryWithPCs path valuesWithoutPCs
+      return (Just reconstructed)
+    else return Nothing
 
 cuddManager :: DDManager
 cuddManager = manager
