@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5bc4b7f5958b8de5345a7c1ca181e885bbc928b3227134f5d9f160289e993f34
+-- hash: 140ace5fa0fb8e0513f8004b26bbc95d73940e9d2d91df2688812a6f922a8edb
 
 name:           ControlFlow
 version:        0.1.0.0
@@ -76,8 +76,8 @@ library
 executable ControlFlow-exe
   main-is: Main.hs
   other-modules:
-      MainAll
       MainCaseTermination
+      MainGotos
       Paths_ControlFlow
   hs-source-dirs:
       app

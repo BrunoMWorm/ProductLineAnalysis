@@ -3,12 +3,12 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 
-#define RETURN
+-- #define RETURN
 -- #define RETURN_AVG
 -- #define DANGLING_SWITCH
 -- #define CALL_DENSITY
 
-module MainDanglingReturnReturnAvgCallDensity where
+module Main where
 
 import CFG (CFG (CFG), CFGNode (CFGNode))
 import CFGParser (readCFG)

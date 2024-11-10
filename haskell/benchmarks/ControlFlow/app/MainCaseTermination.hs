@@ -30,11 +30,9 @@ import System.Timeout (timeout)
 import System.Directory (doesFileExist)
 import qualified VCFG as V
 
-#ifdef CASE_TERMINATION
 import qualified CaseTerminationDeep as Deep
 import qualified CaseTerminationDeepMemo as DeepMemo
 analysis = "CaseTermination"
-#endif
 
 indexed :: [a] -> [(Int, a)]
 indexed xs = go 0 xs
