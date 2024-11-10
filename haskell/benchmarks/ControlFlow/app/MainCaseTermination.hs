@@ -3,8 +3,7 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 
--- #define GOTOS
--- #define CASE_TERMINATION
+#define CASE_TERMINATION
 
 module MainCaseTermination where
 
@@ -30,17 +29,12 @@ import System.IO (hGetContents, openFile)
 import System.Timeout (timeout)
 import System.Directory (doesFileExist)
 import qualified VCFG as V
--- #ifdef GOTOS
--- import qualified GotosDeep as Deep
--- import qualified GotosDeepMemo as DeepMemo
--- analysis = "GotoDensity"
--- #endif
 
--- #ifdef CASE_TERMINATION
+#ifdef CASE_TERMINATION
 import qualified CaseTerminationDeep as Deep
 import qualified CaseTerminationDeepMemo as DeepMemo
 analysis = "CaseTermination"
--- #endif
+#endif
 
 indexed :: [a] -> [(Int, a)]
 indexed xs = go 0 xs
